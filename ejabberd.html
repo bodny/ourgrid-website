@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from www2.lsd.ufcg.edu.br/~marcosancj/og430/ejabberd.php by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 11 Jan 2017 22:54:53 GMT -->
+<head>
+    <meta charset="utf-8">
+    <title>OurGrid 4.3.0</title>
+    <meta name="description" content="ourgrid, p2p, grid, scheduling, open-source, lsd, ufcg">
+    <meta name="author" content="contact@ourgrid.org">
+    <link href="http://www2.lsd.ufcg.edu.br/4.2.6/templates/lsd_ufcg_2/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    <!-- Le styles -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32238696-1']);
+  _gaq.push(['_setDomainName', 'ourgrid.org']);
+
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+  </head>
+
+  <body>
+
+	<div id="header">
+		<ul>
+	       		<li><img src="images/header-simple-logo.png"></li>
+	        	<li><a href="http://ourgrid.org/" target="_blank">ourgrid.org</a></li>
+			<li><a href="http://status.ourgrid.org/" target="_blank">status</a></li>
+			<li><a href="http://portal.ourgrid.org/" target="_blank">portal</a></li>
+			<li><a href="http://charts.ourgrid.org/" target="_blank">charts</a></li>
+	        </ul>
+	</div>
+
+	<div class="container">
+
+		<div class="page-header">
+			<p><a href="http://ourgrid.org/" target="_blank"><img src="images/ourgrid-banner.png"></a></p>
+			<div class="navbar">
+				<div class="navbar-inner">
+					<div class="container">
+						<ul class="nav">
+							<li><a href="index-2.html">Home</a></li>
+							<li><a href="about.html">About OurGrid</a></li>
+							<li><a href="whatsnew.html">What's new?</a></li>
+							<li><a href="download.html">Download</a></li>
+							<li><a href="install.html">Install and Configure</a></li>
+							<li><a href="use.html">How to use?</a></li>
+							<li><a href="contribute.html">Contribute</a></li>
+							<li><a href="labs.html">Labs</a></li>
+						</ul>
+						<ul class="nav-social">
+							<li><a href="http://twitter.com/#!/OurGrid" target="_blank"><img src="images/mini-twitter.png" height="25"></a></li>
+							<li><a href="http://www.facebook.com/pages/OurGrid/170758666368005" target="_blank"><img src="images/mini-facebook.png" height="25"></a></li>
+							<li><a href="http://www.github.com/OurGrid" target="_blank"><img src="images/mini-github.png" height="25"></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		<div class="row">
+			<div class="span12 textjustify">
+				<h2>eJabberd Installation for OurGrid</h2>
+				<hr>
+				<h3>Installation</h3>
+				<ol>
+					<li><a href="#site1">Linux Installation</a></li>
+					<li><a href="#site2">Windows Installation</a></li>
+				</ol>
+				<br>
+				<h4 id="site1">1. Linux Installation</h4>
+				<hr>
+				<ol>
+				<li>Install<br>
+				<strong>$ apt-get install ejabberd</strong>
+				</li><br>
+				<li>Configure</li>
+				<dl>
+				<dt>If you are using the template file (<a href="util/ejabberd.cfg.html" target="_blank" title="ejabberd cfg template file">available here</a>), just change the hostnames and IPs:
+				</dt>
+				<dd>- vim /etc/ejabberd/ejabberd.cfg
+				</dd>
+				<dd>- change {hosts, [“localhost”]}. to your host
+				Ex.: {hosts, [“estrela”]}.
+				</dd>
+				<dd>- change {acl, admin, {user, "", "localhost"}}. to your admin user and host.
+				Ex.: {acl, admin, {user, "abmar", "estrela"}}.
+				</dd>
+				<dd>- set the server external IP in the c2s and in the s2s connections, by adding an IP object:
+				Ex.: {ip, {150, 165, 85, 185}}.
+				
+				</dd>
+				<br>
+				
+				<dt>If you are not using the template file, do the following changes:
+				</dt>
+				<dd>- remove ejabberd_c2s shaper by changing {shaper, c2s_shaper} to {shaper, none}.
+				</dd>
+				<dd>- remove registration_timeout by uncommenting the line {registration_timeout, 600}. and
+				changing it to {registration_timeout, infinity}. (That line may not exist in every config file. In this
+				case you should add this line without uncommenting anything).
+				
+				</dd>
+				<dd>- increase max_user_sessions:
+				Ex.: {access, max_user_sessions, [{100, all}]}.
+				
+				</dd>
+				<dd>- open for inbound registration by changing {access, register, [{deny, all}]}. to {access, register,
+				[{allow, all}]}.
+				</dd>
+				<dd>- remove max stanza limitter, by changing max_stanza_size to none, both in the c2s and in the
+				s2s connections.
+				</dd>
+				<dd>- in the c2s connection, remove the starttls option and add the zlib option in order to allow for
+				compression, as for issue https://support.process-one.net/browse/EJAB-1382.
+				</dd>
+				<dd>- remove traffic shapers and max stanza limit, by changing {access, c2s_shaper, [{none,
+				admin}, {normal, all}]}. and {access, s2s_shaper, [{fast, all}]}. to {access, c2s_shaper, [{none,
+				all}]}. and {access, s2s_shaper, [{none, all}]}., respectively.
+				</dd>
+				<dd>- remove welcome message by commenting {welcome_message, {"Welcome!" ...} and
+				uncommenting {welcome_message, none}. (Remember to comment all lines from the welcome
+				message).
+				</dd>
+				<dd>- comment the ejabberd mods that are not required.</dd><br>
+				<table class="table table-bordered">
+					<tbody>
+						<tr>
+							<td>
+				
+								<dd> %%{mod_adhoc, []},<br></dd>
+								<dd>%%{mod_announce, [{access, announce}]}, % requires mod_adhoc<br></dd>
+								<dd>%%{mod_caps, []},<br></dd>
+								<dd>%%{mod_configure,[]}, % requires mod_adhoc<br></dd>
+								<dd>%%{mod_ctlextra, []},<br></dd>
+								<dd>%%{mod_echo, [{host, "echo.localhost"}]},<br></dd>
+								<dd>%%{mod_irc,[]},<br></dd>
+								<dd>%%{mod_last, []},<br></dd>
+								<dd>%%{mod_muc,[<br></dd>
+								<dd><dd>%%{host, "conference.@HOST@"},<br></dd></dd>
+								<dd><dd>%% {access, muc},<br></dd></dd>
+								<dd><dd>%% {access_create, muc},<br></dd></dd>
+								<dd><dd>%% {access_persistent, muc},<br></dd></dd>
+								<dd><dd>%% {access_admin, muc_admin},%% {max_users, 500}<br></dd></dd>
+								<dd><dd>%% ]},<br></dd></dd>
+								<dd>%%{mod_pubsub, [ % requires mod_caps<br></dd>
+								<dd>%%{access_createnode, pubsub_createnode},<br></dd>
+								<dd>%%{plugins, ["default", "pep"]}<br></dd>
+								<dd>%%]},<br></dd>
+								<dd>%%{mod_roster, []},<br></dd>
+								<dd>%%{mod_service_log,[]},<br></dd>
+								<dd>%%{mod_shared_roster,[]},<br></dd>
+								<dd>%%{mod_stats, []},<br></dd>
+								<dd>%%{mod_time, []},<br></dd>
+								<dd>%%{mod_vcard, []},<br></dd>
+						
+							</td>
+											
+						</tr>
+					</tbody>
+				</table>
+				</dd>
+				</dl>
+				</li>
+				<li>Register Admin<br>
+				<strong>- ejabberdctl register admin domain password
+				</strong>
+				</li>
+				<li>Restart eJabberd<br>
+				<strong>$ /etc/init.d/ejabberd restart
+				</strong>
+				
+				</li>
+				</ol>
+				
+				<br><p><span class="label label-info">Info</span> Ejabberd directory is at <strong>/etc/ejabberd</strong>.</p>
+		
+</ul></ul></ul>
+				<br>
+				<h4 id="site2">2. Windows Installation</h4>
+				<hr>
+				
+		<hr>
+		
+		<footer class="well textcenter">
+			<p>
+			<span class="label label-info">Info</span> To access the previous page of ourgrid.org <a href="http://www2.lsd.ufcg.edu.br/4.2.6/">click here</a>
+			<br><br>
+			OurGrid is a trademark of the Federal University of Campina Grande
+			<br>
+			Contact us at contact@ourgrid.org
+			<br>
+			<a href="http://twitter.com/#!/OurGrid" target="_blank"><img src="images/mini-twitter.png" height="25"></a>
+			&nbsp;&nbsp;<a href="http://www.facebook.com/pages/OurGrid/170758666368005" target="_blank"><img src="images/mini-facebook.png" height="25"></a>
+			&nbsp;&nbsp;<a href="http://www.github.com/OurGrid" target="_blank"><img src="images/mini-github.png" height="25"></a>
+			</p>
+		</footer>
+		
+	</div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+  </body>
+
+<!-- Mirrored from www2.lsd.ufcg.edu.br/~marcosancj/og430/ejabberd.php by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 11 Jan 2017 22:54:54 GMT -->
+</html>
+
