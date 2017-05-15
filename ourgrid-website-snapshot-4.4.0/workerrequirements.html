@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from ourgrid.lsd.ufcg.edu.br/workerrequirements.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 23 Apr 2017 23:30:12 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>OurGrid 4.4.0 has just been released!</title>
+    <meta name="description" content="ourgrid, p2p, grid, scheduling, open-source, lsd, ufcg">
+    <meta name="author" content="contact@ourgrid.org">
+    <link href="4.2.6/templates/lsd_ufcg_2/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    <!-- Le styles -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="js/fancybox/jquery.fancybox.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+<script type="text/javascript">
+/*
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32238696-1']);
+  _gaq.push(['_setDomainName', 'ourgrid.org']);
+
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+*/
+</script>
+
+  </head>
+
+  <body>
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "http://connect.facebook.com/en_US/all.js#xfbml=1&appId=198423843538352";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+	<div id="header">
+		<ul>
+	       		<li><img src="images/header-simple-logo.png"></li>
+	        	<li><a href="http://ourgrid.org/" target="_blank">ourgrid.org</a></li>
+			<li><a href="http://status.ourgrid.org/" target="_blank">status</a></li>
+			<li><a href="http://portal.ourgrid.org/" target="_blank">portal</a></li>
+			<li><a href="http://charts.ourgrid.org/" target="_blank">charts</a></li>
+			<li><a href="http://alfinete.lsd.ufcg.edu.br/ogdoctor/reports" target="_blank">doctor</a></li>
+	        </ul>
+	</div>
+
+	<div class="container">
+
+		<div class="page-header">
+			<p><a href="http://ourgrid.org/" target="_blank"><img src="images/ourgrid-banner.png"></a></p>
+			<div class="navbar">
+				<div class="navbar-inner">
+					<div class="container">
+						<ul class="nav">
+							<li><a href="index-2.html">Home</a></li>
+							<li><a href="overview.html">Overview</a></li>
+							<li><a href="whatsnew.html">What's new</a></li>
+							<li><a href="installingasite.html">Installing a Site</a></li>
+							<li><a href="use.html">Running a Job</a></li>
+							<li><a href="download.html">Download</a></li>
+							<li><a href="getinvolved.html">Get Involved</a></li>
+							<li><a href="http://www.ourgrid.org/4.2.6/index.php/pt/research" target="_blank">Research</a></li>
+							<li><a href="relatedprojects.html">Related Projects</a></li>
+						</ul>
+						<ul class="nav-social">
+							<li><a href="http://twitter.com/#!/OurGrid" target="_blank"><img src="images/mini-twitter.png" height="25"></a></li>
+							<li><a href="http://www.facebook.com/pages/OurGrid/170758666368005" target="_blank"><img src="images/mini-facebook.png" height="25"></a></li>
+							<li><a href="http://www.github.com/OurGrid" target="_blank"><img src="images/mini-github.png" height="25"></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		<div class="row">
+			<div class="span12 textjustify">
+			
+				<h2 id="menu">Worker's attributes</h2>
+				<hr>
+				<p>Worker's attributes are user-defined strings that can be used as requirements to schedule jobs. By default the Worker has the following attributes:</p>
+				
+				<table class="table table-condensed">
+					<thead>
+						<tr>
+							<th>Attribute</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>so</td>
+							<td>The operating system used in the Worker.(ex.: linux)</td>
+						</tr>
+						<tr>
+							<td>provider</td>
+							<td>The Peer which the Worker is connected to (ex.: peer-lsd@xmpp.ourgrid.org)</td>
+						</tr>
+						<tr>
+							<td>username</td>
+							<td>The user name of the Worker in the XMPP server (ex.: worker1-dca3)</td>
+						</tr>
+						<tr>
+							<td>arch</td>
+							<td>The architecture of the virtual machine (possible values: 32 or 64)</td>
+						</tr>
+					</tbody>
+				</table>
+				
+				<p>You can see some sample values for each property on the <a href="http://status.ourgrid.org/" target="_blank">OurGrid Status</a> page, by clicking on a Peer and then in one of its Workers</p>
+				
+				<p>To define new custom attributes to the Worker you need to follow the steps below:</p>
+				
+				<ol>
+					<li>Create a new file in the Worker's install directory with the new attributes as pairs of <strong>'customattribute=customvalue'</strong></li>
+					<li>Edit the Worker's properties file (worker.properties) and add the property <strong>worker.spec.file</strong> with the path to the new attribute file</li>
+					<li>Then, restart the Worker</li>
+				</ol>
+				
+				<p>These new attributes created can be used as requirements specifications for the job, as described in the section <a href="use.html#site8">matching attributes</a> of the running a job page</p>
+				
+			</div>
+		</div>	
+		
+		<hr>
+		
+		<footer class="well textcenter">
+			<p>
+			<span class="label label-info">Info</span> To access the previous page of ourgrid.org <a href="4.2.6/index.html">click here</a>
+			<br><br>
+			OurGrid is a trademark of the Federal University of Campina Grande
+			<br>
+			Contact us at contact@ourgrid.org
+			<br>
+			<a href="http://twitter.com/#!/OurGrid" target="_blank"><img src="images/mini-twitter.png" height="25"></a>
+			&nbsp;&nbsp;<a href="http://www.facebook.com/pages/OurGrid/170758666368005" target="_blank"><img src="images/mini-facebook.png" height="25"></a>
+			&nbsp;&nbsp;<a href="http://www.github.com/OurGrid" target="_blank"><img src="images/mini-github.png" height="25"></a>
+			</p>
+		</footer>
+		
+	</div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script src="js/fancybox/jquery.fancybox.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+
+<!-- Mirrored from ourgrid.lsd.ufcg.edu.br/workerrequirements.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 23 Apr 2017 23:30:12 GMT -->
+</html>
+

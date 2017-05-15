@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from ourgrid.lsd.ufcg.edu.br/whatsnew.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 23 Apr 2017 20:54:32 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>OurGrid 4.4.0 has just been released!</title>
+    <meta name="description" content="ourgrid, p2p, grid, scheduling, open-source, lsd, ufcg">
+    <meta name="author" content="contact@ourgrid.org">
+    <link href="4.2.6/templates/lsd_ufcg_2/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    <!-- Le styles -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="js/fancybox/jquery.fancybox.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+<script type="text/javascript">
+/*
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32238696-1']);
+  _gaq.push(['_setDomainName', 'ourgrid.org']);
+
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+*/
+</script>
+
+  </head>
+
+  <body>
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "http://connect.facebook.com/en_US/all.js#xfbml=1&appId=198423843538352";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+	<div id="header">
+		<ul>
+	       		<li><img src="images/header-simple-logo.png"></li>
+	        	<li><a href="http://ourgrid.org/" target="_blank">ourgrid.org</a></li>
+			<li><a href="http://status.ourgrid.org/" target="_blank">status</a></li>
+			<li><a href="http://portal.ourgrid.org/" target="_blank">portal</a></li>
+			<li><a href="http://charts.ourgrid.org/" target="_blank">charts</a></li>
+			<li><a href="http://alfinete.lsd.ufcg.edu.br/ogdoctor/reports" target="_blank">doctor</a></li>
+	        </ul>
+	</div>
+
+	<div class="container">
+
+		<div class="page-header">
+			<p><a href="http://ourgrid.org/" target="_blank"><img src="images/ourgrid-banner.png"></a></p>
+			<div class="navbar">
+				<div class="navbar-inner">
+					<div class="container">
+						<ul class="nav">
+							<li><a href="index-2.html">Home</a></li>
+							<li><a href="overview.html">Overview</a></li>
+							<li><a href="whatsnew.html">What's new</a></li>
+							<li><a href="installingasite.html">Installing a Site</a></li>
+							<li><a href="use.html">Running a Job</a></li>
+							<li><a href="download.html">Download</a></li>
+							<li><a href="getinvolved.html">Get Involved</a></li>
+							<li><a href="http://www.ourgrid.org/4.2.6/index.php/pt/research" target="_blank">Research</a></li>
+							<li><a href="relatedprojects.html">Related Projects</a></li>
+						</ul>
+						<ul class="nav-social">
+							<li><a href="http://twitter.com/#!/OurGrid" target="_blank"><img src="images/mini-twitter.png" height="25"></a></li>
+							<li><a href="http://www.facebook.com/pages/OurGrid/170758666368005" target="_blank"><img src="images/mini-facebook.png" height="25"></a></li>
+							<li><a href="http://www.github.com/OurGrid" target="_blank"><img src="images/mini-github.png" height="25"></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="span12 textjustify">
+				<h2>OurGrid 4.3.1 Release Notes</h2>
+				<p>Check out what’s new in this version of OurGrid.</p>
+				<h3>Major Highlights</h3>
+				<ul>
+					<li>Support for VirtualBox 4.1.18</li>
+					<li>R, numpy and scipy support</li>
+					<li>Bug fixes related to Virtual Box</li>
+					<li>REST API: authorization and file handling</li>
+				</ul>
+				<hr>
+				<p>The table below summarizes  all changes made in the <strong>OurGrid 4.3.1</strong> release.</p>
+				
+<table class="table table-bordered" >
+					<thead>
+						<tr>
+							<th><p align="center">Status</th>
+							<th><p align="center">Issue</th>
+							<th><p align="center">Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><p align="center"><span class="label label-warning">CHANGED</span></td>
+							<td><p align="center"><a href="http://redmine.lsd.ufcg.edu.br/issues/1984" target="_blank">Issue #1984</a></td>
+							<td><p align="justify">Support for VirtualBox 4.1.18</p></td>
+						</tr>
+						<tr>
+							<td><p align="center"><span class="label label-warning">CHANGED</span></td>
+							<td><p align="center"><a href="http://redmine.lsd.ufcg.edu.br/issues/1975" target="_blank">Issue #1975</a></td>
+							<td><p align="justify">Created new Worker's properties based on the VM image: OS and arch</p></td>
+						</tr>
+						<tr>
+							<td><p align="center"><span class="label label-warning">CHANGED</span></td>
+							<td><p align="center"><a href="http://redmine.lsd.ufcg.edu.br/issues/1067" target="_blank">Issue #1067</a></td>
+							<td><p align="justify">Added support for numpy and scipy in the standard Virtual Box image</p></td>
+						</tr>
+						<tr>
+							<td><p align="center"><span class="label label-warning">CHANGED</span></td>
+							<td><p align="center"><a href="http://redmine.lsd.ufcg.edu.br/issues/1982" target="_blank">Issue #1982</a></td>
+							<td><p align="justify">JSAGA + Rest API: File upload</p></td>
+						</tr>
+						<tr>
+							<td><p align="center"><span class="label label-warning">CHANGED</span></td>
+							<td><p align="center"><a href="http://redmine.lsd.ufcg.edu.br/issues/1983" target="_blank">Issue #1983</a></td>
+							<td><p align="justify">JSAGA + Rest API: Authorization based on roles</p></td>
+						</tr>
+						<tr>
+							<td><p align="center"><span class="label label-success">FIXED</span></td>
+							<td><p align="center"><a href="http://redmine.lsd.ufcg.edu.br/issues/1961" target="_blank">Issue #1961</a></td>
+							<td><p align="justify">Bug fix: Error while taking a snapshot after a task execution in Virtual Box</p></td>
+						</tr>
+						<tr>
+							<td><p align="center"><span class="label label-success">FIXED</span></td>
+							<td><p align="center"><a href="http://redmine.lsd.ufcg.edu.br/issues/1891" target="_blank">Issue #1891</a></td>
+							<td><p align="justify">Bug fix: Worker+Virtual Box debian installation returning an error code (1)</p></td>
+						</tr>
+						<tr>
+							<td><p align="center"><span class="label label-success">FIXED</span></td>
+							<td><p align="center"><a href="http://redmine.lsd.ufcg.edu.br/issues/1567" target="_blank">Issue #1567</a></td>
+							<td><p align="justify">Bug fix: Idleness detector was not working in 64bits machines</p></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	
+		<div class="row">
+			<div class="span12 textjustify">
+				<h2>OurGrid 4.3.0 Release Notes</h2>
+				<p><strong>OurGrid 4.3.0</strong> <i>has changed!</i> This version of <strong>OurGrid</strong> provides <strong>faster</strong> and <strong>simpler</strong> ways to deploy and manage the OurGrid sites!. Check out what’s new and what’s been fixed in this version below.</p>
+				<h3>Major Highlights</h3>
+				<ul>
+					<li>Easy installation</li>
+					<li>OurGrid support for Windows</li>
+					<li>Worker’s dynamic connection with the Peer</li>
+				</ul>
+				<hr>
+				<p>The table below summarizes  all changes made in the <strong>OurGrid 4.3.0</strong> release.</p>
+				
+<table class="table table-bordered" >
+					<thead>
+						<tr>
+							<th><p align="center">Status</th>
+							<th><p align="center">Category</th>
+							<th><p align="center">Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><p align="center"><span class="label label-info">NEW</span></td>
+							<td><p align="center"><a href="http://redmine.lsd.ufcg.edu.br/issues/1305" target="_blank">Issue #1305</a><br>Deb and RPM Installers</td>
+							<td><p align="justify"> OurGrid components can now be installed via Debian and RPM packages. This feature will dramatically decrease configuration overhead, mainly regarding virtualization configuration and dependency management.<p/></td>
+						</tr>
+						<tr>
+							<td><p align="center"><span class="label label-info">NEW</span></td>
+							<td><p align="center"><a href="http://redmine.lsd.ufcg.edu.br/issues/1081" target="_blank">Issue #1081</a><br>Exe Installers</td>
+							<td><p align="justify"> OurGrid is coming to Windows! Same benefits of the Deb installers plus sandboxing with Virtual Box, which wasn't supported in previous version.</td>
+						</tr>
+						<tr>
+							<td><p align="center"><span class="label label-info">NEW</span></td>
+							<td><p align="center"><a href="http://redmine.lsd.ufcg.edu.br/issues/1465" target="_blank">Issue #1465</a><br>OurVirt</td>
+							<td><p align="justify">OurVirt is a Java API for Virtual Machine managers, developed in the LSD, UFCG. Emerged from the needs of the GenericExecutor (See below), which LibVirt didn't supply, OurVirt delivers a common interface for creating, starting, stopping, destroying, creating shared folders, mounting shared folders, getting status, executing commands, taking and restoring snapshots, cloning disks/images of virtual machines. Now it implements VServer and VirtualBox strategies.</p></td>
+						</tr>
+						<tr>
+							<td><p align="center"><span class="label label-info">NEW</span></td>
+							<td><p align="center"><a href="http://redmine.lsd.ufcg.edu.br/issues/1079" target="_blank">Issue #1079</a><br>GenericExecutor</td>
+							<td><p align="justify">Isolates hypervisor-specific tasks from the Worker execution process. Now we use a single executor implementation for every sandbox strategy.</td>
+						</tr>
+						<tr>
+							<td><p align="center"><span class="label label-info">NEW</span></td>
+							<td><p align="center"><a href="http://redmine.lsd.ufcg.edu.br/issues/1466" target="_blank">Issue #1466</a><br>Worker Admin Web</td>
+							<td><p align="justify">The Worker Admin goes to the web. Now we deploy a single web application for the administrator that wants to manage its OurGrid community remotely. Management means deploying, starting, stopping, killing process, issuing certificates, updating workers remotely via SSH.</td>
+						</tr>
+						<tr>
+							<td><p align="center"><span class="label label-info">NEW</span></td>
+							<td>
+							<p align="center"><a href="http://redmine.lsd.ufcg.edu.br/issues/1433" target="_blank">Issue #1433</a><br>Certificate Requester Page<br>
+							<a href="http://redmine.lsd.ufcg.edu.br/issues/1261" target="_blank">Issue #1261</a><br>- On the command line<br>
+							<a href="http://redmine.lsd.ufcg.edu.br/issues/1467" target="_blank">Issue #1467</a><br>- On the Peer's GUI
+							</td>
+							<td><p align="justify">Now the Worker components need an issued certificate provided by the Peer. The tools allow for easy certification generation/issuing on the Peer side. The certificate requester page has also a voluntary version, which create ready-to-donate Worker packages.</td>
+						</tr>
+						<tr>
+							<td><p align="center"><span class="label label-info">NEW</span></td>
+							<td>
+							<p align="center"><a href="http://redmine.lsd.ufcg.edu.br/issues/1769" target="_blank">Issue #1769</a><br>REST Broker API</p>
+							</td>
+							<td><p align="justify">The REST Broker API is a service that allows to: Submit a job; Get a status list of all submitted jobs to the broker; Get the job status specified by the id; Cancel a job specified by the id; Clean a finished job filtered by id</p></td>
+						</tr>
+						<tr>
+							<td><p align="center"><span class="label label-warning">CHANGED</span></td>
+							<td><p align="center"><a href="http://redmine.lsd.ufcg.edu.br/issues/1794" target="_blank">Issue #1794</a><br>Grid Description File</td>
+							<td><p align="justify">The Peer configuration on Broker was changed, and the support for the GDF file was removed, by now we can set peers in the configuration file, using the broker.peer.address property.</td>
+						</tr>
+						<tr>
+							<td><p align="center"><span class="label label-warning">CHANGED</span></td>
+							<td><p align="center"><a href="http://redmine.lsd.ufcg.edu.br/issues/1076" target="_blank">Issue #1076</a><br>Dynamic Worker</td>
+							<td><p align="justify">The Dynamic Worker feature inverts the interest between the Peer and the Worker components. Now the Worker tries to login in its Peer during its starting process. If that Worker has a certificate issued by the Peer, the login process ends sucessfully and the Worker will be managed by that Peer. This feature allows for easy addition of new Workers and for voluntary computing.</td>
+						</tr>
+						<tr>
+							<td><p align="center"><span class="label label-warning">CHANGED</span></td>
+							<td><p align="center"><a href="http://redmine.lsd.ufcg.edu.br/issues/1469" target="_blank">Issue #1469</a><br>Voluntary Peer</td>
+							<td><p align="justify">A voluntary Peer does not check for issued Workers' certificates. In other words, it accepts any Worker who means to donate.</td>
+						</tr>
+						<tr>
+							<td><span class="label label-warning">CHANGED</span></td>
+							<td><p align="center"><a href="http://redmine.lsd.ufcg.edu.br/issues/1485" target="_blank">Issue #1485</a><br>On Demand Registration</td>
+							<td><p align="justify">A Peer that enables on-demand registration will accept any Brokers that wants to consume its resources, without any previous registration.</td>
+						</tr>
+						<tr>
+							<td><p align="center"><span class="label label-warning">CHANGED</span></td>
+							<td><p align="center"><a href="http://redmine.lsd.ufcg.edu.br/issues/1305" target="_blank">Issue #1305</a><br>Idleness Detector with Xidletime</td>
+							<td><p align="justify">Worker Idleness detector now works for USB devices. Using an adapted code of the libxprintidle, the Worker is now able to handle that kind of even.</td>
+						</tr>
+						<tr>
+							<td><span class="label label-warning">CHANGED</span></td>
+							<td><p align="center"><a href="http://redmine.lsd.ufcg.edu.br/issues/1468" target="_blank">Issue #1468</a><br>Worker Preempted Message</td>
+							<td><p align="justify">In the previous versions of OurGrid, when a Worker was preempted, the Broker waited for its failure. A single message called WorkerPreempted could avoid the dependency of the Failure Detector in this scenario, which will reduce makespan in certain scenarios.</td>
+						</tr>
+						<tr>
+							<td><p align="center"><span class="label label-warning">CHANGED</span></td>
+							<td><p align="center"><a href="http://redmine.lsd.ufcg.edu.br/issues/1074" target="_blank">Issue #1074</a><br>Discovery Service/Peer Scalability and Availability</td>
+							<td><p align="justify">Discovery Service Availability feature introduces the concept of Discovery Service Network. Several Discovery Service may connect among themselves, creating a network and signaling Peers of the existance of others DS. The Peers now persists a list of Discovery Services and may connect to others DS if its Primary DS fails.
+To achieve scalability, we limit the number of Peers a DS can hold. If the DS is overloaded when a Peer tries to login on it, the Peer will be notified and will try to connect to other DS that it knows. Also, a Peer can determine the maximum number of Peers it will forward requests. </td>
+						</tr>
+						<tr>
+							<td><p align="center"><span class="label label-warning">CHANGED</span></td>
+							<td><p align="center"><a href="http://redmine.lsd.ufcg.edu.br/issues/1436" target="_blank">Issue #1436</a><br>WorkerSpec File</td>
+							<td><p align="justify">Implemented due to the Dynamic Worker feature. Now the Worker has a WorkerSpec file where tags or properties can be added, propertis that are not dynamic or can't be inferred by the Worker. This file has a similar function to the old SDF (Site Description File).</td>
+						</tr>
+						<tr>
+							<td><p align="center"><span class="label label-success">FIXED</span></td>
+							<td><p align="center"><a href="http://redmine.lsd.ufcg.edu.br/issues/1413" target="_blank">Issue #1413</a><br>Bug Fixed</td>
+							<td><p align="justify">Broker relies on a never-arriving failure message of a preempted Worker.</td>
+						</tr>
+						<tr>
+							<td><p align="center"><span class="label label-success">FIXED</span></td>
+							<td><p align="center"><a href="http://redmine.lsd.ufcg.edu.br/issues/1422" target="_blank">Issue #1422</a><br>Bug Fixed</td>
+							<td><p align="justify">Worker status change notifications should be labelled with its consumer.</td>
+						</tr>
+						<tr>
+							<td><p align="center"><span class="label label-success">FIXED</span></td>
+							<td><p align="center"><a href="http://redmine.lsd.ufcg.edu.br/issues/1464" target="_blank">Issue #1464</a><br>Bug Fixed</td>
+							<td><p align="justify">OurGrid charts: Out of memory on Peer Availability queries.</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		
+		<hr>
+		
+		<footer class="well textcenter">
+			<p>
+			<span class="label label-info">Info</span> To access the previous page of ourgrid.org <a href="4.2.6/index.html">click here</a>
+			<br><br>
+			OurGrid is a trademark of the Federal University of Campina Grande
+			<br>
+			Contact us at contact@ourgrid.org
+			<br>
+			<a href="http://twitter.com/#!/OurGrid" target="_blank"><img src="images/mini-twitter.png" height="25"></a>
+			&nbsp;&nbsp;<a href="http://www.facebook.com/pages/OurGrid/170758666368005" target="_blank"><img src="images/mini-facebook.png" height="25"></a>
+			&nbsp;&nbsp;<a href="http://www.github.com/OurGrid" target="_blank"><img src="images/mini-github.png" height="25"></a>
+			</p>
+		</footer>
+		
+	</div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script src="js/fancybox/jquery.fancybox.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+
+<!-- Mirrored from ourgrid.lsd.ufcg.edu.br/whatsnew.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 23 Apr 2017 20:54:32 GMT -->
+</html>
+

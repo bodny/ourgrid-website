@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from ourgrid.lsd.ufcg.edu.br/use.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 23 Apr 2017 20:54:35 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>OurGrid 4.4.0 has just been released!</title>
+    <meta name="description" content="ourgrid, p2p, grid, scheduling, open-source, lsd, ufcg">
+    <meta name="author" content="contact@ourgrid.org">
+    <link href="4.2.6/templates/lsd_ufcg_2/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    <!-- Le styles -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="js/fancybox/jquery.fancybox.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+<script type="text/javascript">
+/*
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32238696-1']);
+  _gaq.push(['_setDomainName', 'ourgrid.org']);
+
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+*/
+</script>
+
+  </head>
+
+  <body>
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "http://connect.facebook.com/en_US/all.js#xfbml=1&appId=198423843538352";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+	<div id="header">
+		<ul>
+	       		<li><img src="images/header-simple-logo.png"></li>
+	        	<li><a href="http://ourgrid.org/" target="_blank">ourgrid.org</a></li>
+			<li><a href="http://status.ourgrid.org/" target="_blank">status</a></li>
+			<li><a href="http://portal.ourgrid.org/" target="_blank">portal</a></li>
+			<li><a href="http://charts.ourgrid.org/" target="_blank">charts</a></li>
+			<li><a href="http://alfinete.lsd.ufcg.edu.br/ogdoctor/reports" target="_blank">doctor</a></li>
+	        </ul>
+	</div>
+
+	<div class="container">
+
+		<div class="page-header">
+			<p><a href="http://ourgrid.org/" target="_blank"><img src="images/ourgrid-banner.png"></a></p>
+			<div class="navbar">
+				<div class="navbar-inner">
+					<div class="container">
+						<ul class="nav">
+							<li><a href="index-2.html">Home</a></li>
+							<li><a href="overview.html">Overview</a></li>
+							<li><a href="whatsnew.html">What's new</a></li>
+							<li><a href="installingasite.html">Installing a Site</a></li>
+							<li><a href="use.html">Running a Job</a></li>
+							<li><a href="download.html">Download</a></li>
+							<li><a href="getinvolved.html">Get Involved</a></li>
+							<li><a href="http://www.ourgrid.org/4.2.6/index.php/pt/research" target="_blank">Research</a></li>
+							<li><a href="relatedprojects.html">Related Projects</a></li>
+						</ul>
+						<ul class="nav-social">
+							<li><a href="http://twitter.com/#!/OurGrid" target="_blank"><img src="images/mini-twitter.png" height="25"></a></li>
+							<li><a href="http://www.facebook.com/pages/OurGrid/170758666368005" target="_blank"><img src="images/mini-facebook.png" height="25"></a></li>
+							<li><a href="http://www.github.com/OurGrid" target="_blank"><img src="images/mini-github.png" height="25"></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		<div class="row">
+			<div class="span12 textjustify">
+				<h2>Broker</h2>
+				<hr>
+				<p> The <strong>Broker</strong> component is responsible for submitting jobs to an OurGrid site. It must be connected to a Peer so it can request Workers.</p>
+				<p>To see how to install the Broker, click <a href="installingasite.html">here</a>.</p>
+				<hr>
+				<h2>Use </h2>
+				<hr>
+				<h3>Writing Jobs</h3>
+				<ol>
+					<li><a href="#site1">Job Description Files</a></li>
+					<li><a href="#site2">JDF Job Definition</a></li>
+					<li><a href="#site3">The Job Clause</a></li>
+					<li><a href="#site4">The Task Clause</a></li>
+						<ul>
+   						 	<li><a href="#site5">Transferring Files to/from Workers</a></li>
+						 </ul>
+					<li><a href="#site6">Using Environment Variables</a></li>
+					<li><a href="#site7">Using Defaults</a></li>
+					<li><a href="#site8">Attribute Matching	</a></li>
+				</ol>
+				<h3>Running a Job</h3>
+				<ol>
+					<li><a href=#site9>Via a Broker</a>
+					<li><a href=#site10>Via OurGrid Portal </a>
+					<li><a href=#site11>Via Broker User Interface </a>
+				</ol>
+				<hr>
+				<h3>Writing Jobs</h3>
+				<br>
+				<h4 id="site1">1. Job Description Files</h4>
+				<hr>
+				<p>A <strong>job description file</strong>, or jdf for short, is a plain text file that contains a job 					description. Each job description file describes a single job. You can edit a jdf in the text editor of your 					choice. By convention, we use the .jdf extension to name all job description files.</p>
+				<p>A jdf file has two types of clauses in it: the <strong>job </strong> and the <strong>task</strong> 					clauses. You use the first type to specify common attributes for the entire job and the other one to specify 					particular attributes and commands to the tasks that comprise your parallel application.</p>
+
+				<br>
+				<h4 id="site2">2. JDF Job Definition</h4>
+				<hr>
+
+<table class="table table-bordered">
+					<tbody>
+						<tr>
+							<td><span class="spanlabel">job:</span></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><span class="spanlabel">label:</span></td>
+							<td>A  desciptive name for the job.</td>
+						</tr>
+						<tr>
+							<td><span class="spanlabel">task:</span></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><span class="spanlabel">init:</span></td>
+							<td>Input data. The files that will be staged into the Worker.</td>
+						</tr>
+						<tr>
+							<td><span class="spanlabel">remote:</span></td>
+							<td>Code for execution, which is a command line on the target resource.</td>
+						</tr>
+						<tr>
+							<td><span class="spanlabel">final:</span></td>
+							<td>Output data. The files that will be staged out from the Worker.</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<br>						
+				<h4 id="site3">3. The Job Clause</h4>
+				<hr>
+				<p>A job clause contains a (possibly empty) list of sub-clauses. For instance, the <strong>requirements</strong>	 sub-clause encompasses the list of requirements that need to be fulfilled by a worker node, so that it can be selected to run tasks of the job, while the <strong>label</strong> sub-clause associates a name to the job. This sub-clause is useful for tracking the execution of the job and also to associate the name of the output files to the job that has generated it.</p>
+<p>Below we present an example of a jdf, which defines a very simple job named myjob1. It requires worker nodes that have the os attribute set to "linux" and the mem attribute set to a number greater or equal to 100.</p>
+
+
+<table class="table">
+					<tbody>
+						<tr>
+							<td><span class="spanlabel">job:</span></td>
+							
+						</tr>
+						<tr>
+							<td><span class="spanlabel">label:</span> <strong>myjob1</strong></td>
+							
+						</tr>
+						<tr>
+							<td><span class="spanlabel">requirements :</span><strong> ( os == linux and mem >= 100)
+							</strong></td>
+							
+						</tr>
+						<tr>
+							<td><span class="spanlabel">task:</span></td>
+							
+						</tr>
+						<tr>
+							<td><span class="spanlabel">remote:</span><strong> mytask</strong></td>
+						</tr>
+						</tbody>
+				</table>
+<br>
+			<p>As we mentioned before, all sub-clauses of a job clause are optional. If the label sub-clause does not exist in 				the jdf, an internal job id is used to identify it. If there is no requirements sub-clause, the Broker assumes that 				all worker nodes in your grid are able to run the tasks of your job.</p>
+			<p>Besides label and requirements sub-clauses, you may define default descriptions for all tasks of a job. This is 				further explained below.</p>
+				<br>
+				<h4 id="site4">4. The Task Clause</h4>
+				<hr>
+				
+<p>There is one task clause to describe each task of a job. The number of tasks in a job is determined by the number of task clauses in the jdf. The task clause is used to describe all the phases of a task. A task is divided in <strong>initial</strong>, <strong>remote</strong> and <strong>final</strong> phases which are described by means of init, remote and final sub-clauses, respectively.</p>
+
+						<ul>
+							<li><strong>Init sub-clause</strong>: is used to define which files will be 								transferred from the user's machine to the worker node 								before the execution of the task.</li>
+							<li><strong>Remote sub-clause </strong>: is used to specify which command line will 								be invoked in the worker node.</li>
+							<li><strong>Final sub-clause</strong>: defines which files will be transferred from 								the worker node to the user's machine, after the execution of the task.</li>
+							
+						</ul>
+						<br>
+				
+				<h4 id="site5"><ul><li>Transferring Files to/from Workers</li><ul></h4>
+				<hr>
+				<p><strong>OurGrid </strong>provides a useful set of abstractions that allow you to write BoT applications without knowing details of the worker node file system. The basic idea is that you can have OurGrid transferring and retrieving files to/from the worker nodes in a per task basis. OurGrid defines two virtual directories for each task, called <strong>playpen</strong> and <strong>storage</strong>. In the task description you can instruct OurGrid to copy files to these directories. This assures that the worker nodes will have all necessary files stored locally, before the tasks are run. Analogously, you can instruct OurGrid to copy files from those directories back to the user's machine after the successful execution of the task. This allows you to gather the results.</p>
+
+<p>OurGrid offers three operations to be used in the init and final sub-clauses, namely:</p>
+<ul><strong>
+<li>get</li>
+<li>put</li>
+<li>store</li>
+</strong>
+</ul> <p>The operations put and store are used only in the init sub-clause, whereas get is used only in the final sub-clause.</p>
+
+	<p>The <strong>put</strong> command is used in init sub-clause to indicate files to be transferred to the worker node. As an alternative to the put command, you may use the <strong>store</strong> command. Both put and store perform conceptually the same operation: transfer a file from the home machine to a worker node. However, store checks whether the file already exists in the worker node (due to a previous transfer, for example) before transferring it. Therefore, we recommend using store for files that may be used many times, such as binaries and input files shared by multiple tasks.</p> 
+<ol>
+	<li>The general form of the put and store commands is:</li>
+		<font COLOR="#800517">put/store localfile remotefile</font>
+	<li>The get command is used in the final sub-clause to fetch files from the worker node. The general form of a get command is: </li>
+		<font COLOR="#800517">get remotefile localfile</font>
+</ol>					
+		<p>In all above commands, <font COLOR="#800517">localfile</font> is the name of the file on the user's machine. If relative names are used, the Broker will consider the job description file directory as the base directory, whereas  <font COLOR="#800517">remotefile</font> is the name of the file on the worker node. All remote file names are associated to the $PLAYPEN directory, if this is a put or get operation. In the case of store, the default directory is $STORAGE.</p>
+
+<p>Additionally, OurGrid includes the $STORAGE directory in the worker nodeâ€™s $PATH, since it is common to store executable files in this directory. By using get, put and store, we can rewrite the previous example as follows:</p>
+<table class="table">
+					<tbody>
+						<tr>
+							<td><span class="spanlabel">job:</span></td>
+							
+						</tr>
+						<tr>
+							<td><span class="spanlabel">label:</span><strong> myjob</strong></td>
+							
+						</tr>
+						<tr>
+							<td><span class="spanlabel">task:</span></td>
+							
+						</tr>
+						<tr>
+							<td>
+								<span class="spanlabel">init: </span><strong> put input input<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;store mytask mytask</strong>
+							</td>
+							
+						</tr>
+						<tr>
+							<td><span class="spanlabel">remote: </span><strong> $STORAGE/mytask < input > output</strong></td>
+						</tr>
+						<tr>
+							<td><span class="spanlabel">final: </span><strong>get output output</strong></td>
+							
+						</tr>
+						</tbody>
+				</table>
+<p>The job contains only one task that starts by transferring a file named input to $PLAYPEN and a file named <FONT COLOR="#800517">mytask</font> to $STORAGE. The task then runs <FONT COLOR="#800517">mytask</font> in a worker node, reading the standard <FONT COLOR="#800517">input</font> from the file <FONT COLOR="#800517">input</font>, and writting the standard <FONT COLOR="#800517">output</font> in the <FONT COLOR="#800517">output</font> file. When the execution of <FONT COLOR="#800517">mytask</font> finishes, the final phase of the task is executed, fetching the <FONT COLOR="#800517">output</font> file back to the user's machine.</p>
+
+				<h4 id="site6">5. Using Environment Variables</h4>
+				<hr>
+
+				<p><strong>OurGrid</strong> automatically defines the environment variables $JOB, $TASK, $PROC, $PLAYPEN and $STORAGE and they respectively contain a unique job number, a unique task number, the worker node chosen to run the task, the directory created as the playpen, and the storage directory name. These variables are useful to define unique names for the input and output files of each task. For instance:</p>
+<table class="table">
+					<tbody>
+						<tr>
+							<td><span class="spanlabel">job:</span></td>
+							
+						</tr>
+						<tr>
+							<td><span class="spanlabel">label:</span><strong> myjob5</strong></td>
+							
+						</tr>
+						<tr>
+							<td><span class="spanlabel">task:</span></td>
+							
+						</tr>
+						<tr>
+							<td><span class="spanlabel">init: </span><strong> put input input<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;store mytask mytask
+							</strong></td>
+							
+						</tr>
+						<tr>
+							<td><span class="spanlabel">remote: </span><strong>mytask < input > output-$TASK</strong></td>
+						</tr>
+						<tr>
+							<td><span class="spanlabel">final: </span><strong>get output-$TASK output-$TASK</strong></td>
+							
+						</tr>
+<tr>
+							<td><span class="spanlabel">task:</span></td>
+							
+						</tr>
+						<tr>
+							<td><span class="spanlabel">init: </span><strong> put input input<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;store mytask mytask
+							</strong></td>
+							
+						</tr>
+						<tr>
+							<td><span class="spanlabel">remote: </span><strong>mytask < input > output-$TASK</strong></td>
+						</tr>
+						<tr>
+							<td><span class="spanlabel">final: </span><strong>get output-$TASK output-$TASK</strong></td>
+							
+						</tr>
+						</tbody>
+				</table>
+
+<ul>
+<li>Appending the task number to a file is useful for the common case where the tasks that comprise the job produce output with the same name.</li>
+<li>Appending the task number ensures the uniqueness of each output.</li>
+</ul>
+
+<p>It is easy to use OurGrid environment variables. You just need to refer to them as $PROC, $TASK, $JOB, $STORAGE and $PLAYPEN in init, remote and final sub-clauses. OurGrid transparently maps them accordingly to the operating system on which the task is going to run on (<strong>Microsoft Windows-like or Unix-like</strong>). Thus, with a single job description file, it is possible to run your job in heterogeneous grids. OurGrid environment variables are summarized in <strong>Table 1</strong>.</p>
+<table class="table table-bordered">
+					<tbody>
+						<tr>
+							<td><strong>Variable</strong></td>
+							<td><strong>Contents</strong></td>
+						</tr>
+						<tr>
+							<td><span class="spanlabel">$PLAYPEN</span></td>
+							<td>A new directory created to execute the task on the grid machine. </td>
+						</tr>
+						<tr>
+							<td><span class="spanlabel">$PROC </span></td>
+							<td>The processor assigned to run the task. </td>
+						</tr>
+						<tr>
+							<td><span class="spanlabel">$TASK</span></td>
+							<td>The number of the current task. 
+</td>
+						</tr>
+<tr>
+							<td><span class="spanlabel">$JOB </span></td>
+							<td>The number of the current job. </td>
+						</tr>
+<tr>
+							<td><span class="spanlabel">$STORAGE</span></td>
+							<td>The path of the storage directory. </td>
+						</tr>
+					</tbody>
+				</table>
+<p><center><strong>Table 1:</strong> Environment Variables</center></p>
+				
+				<h4 id="site7">6. Using Defaults</h4>
+<p>In the last example, we showed how to use the OurGrid environment variables to write tasks. What they really enable you to do is to have tasks that are literally the same. However, doing a cut-and-paste for each task in your job does not sound good. It is much easier to use the job section to define defaults for all phases of its tasks. Consequently, the last example can be much easily written as:</p>
+<table class="table">
+					<tbody>
+						<tr>
+							<td><span class="spanlabel">job:</span></td>
+							
+						</tr>
+						<tr>
+							<td><span class="spanlabel">label:</span><strong> myjob6</strong></td>
+							
+						</tr>
+						<tr>
+							<td><span class="spanlabel">init: </span><strong> put input input<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;store mytask mytask
+							</strong></td>
+							
+						</tr>
+						<tr>
+							<td><span class="spanlabel">remote: </span><strong>mytask < input > output-$TASK</strong></td>
+						</tr>
+						<tr>
+							<td><span class="spanlabel">final: </span><strong>get output-$TASK output-$TASK</strong></td>
+							
+						</tr>
+<tr>
+							<td><span class="spanlabel">task:</span></td>
+							
+						</tr>
+						<tr>
+							<td><span class="spanlabel">task:</span></td>
+							
+						</tr>
+						</tbody>
+				</table>
+
+<p>Note that the empty task sections are needed to inform OurGrid how many tasks the job contains. As the name suggests, the default values set in the job clause can be overwritten in the task clauses. Consider the example:</p>
+<table class="table">
+					<tbody>
+						<tr>
+							<td><span class="spanlabel">job:</span></td>
+							
+						</tr>
+						<tr>
+							<td><span class="spanlabel">label:</span><strong> myjob7</strong></td>
+							
+						</tr>
+						<tr>
+							<td><span class="spanlabel">init: </span><strong> put input input<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;store mytask mytask
+							</strong></td>
+							
+						</tr>
+						<tr>
+							<td><span class="spanlabel">remote: </span><strong>mytask < input > output-$TASK</strong></td>
+						</tr>
+						<tr>
+							<td><span class="spanlabel">final: </span><strong>get output-$TASK output-$TASK</strong></td>
+							
+						</tr>
+<tr>
+							<td><span class="spanlabel">task:</span></td>
+							
+						</tr>
+<tr>
+							<td><span class="spanlabel">init: </span><strong> put alpha input
+							</strong></td>
+							
+						</tr>
+						<tr>
+							<td><span class="spanlabel">task:</span></td>
+							
+						</tr>
+						</tbody>
+				</table>
+
+<p>Here, the first task copies the file alpha at the user's machine into file input at the worker node, and proceeds as before. The second task remains unchanged.</p>
+				<hr>
+				
+				<h4 id="site8">7. Attribute Matching</h4>
+				<hr>
+				<p>Worker node's attributes are user-defined strings that express the characteristics of the worker node. They can be used to define the job requirements. Job requirements are described by means of expressions involving these attributes. Most common arithmetic and logical operators are supported. Operators with higher precedence are evaluated before operators with lower precedence. Evaluation of operators with the same precedence is from left to right. This evaluation order can be changed by using parentheses. <strong>Table 2</strong> lists all operators supported by OurGrid.</p>
+				
+				<table class="table table-bordered">
+					<tbody>
+						<tr>
+							<td><strong>Operator</strong></td>
+							<td><strong>Description </strong></td>
+							<td><strong>Example </strong></td>
+						</tr>
+						<tr>
+							<td><span class="spanlabel">!</span></td>
+							<td>logical negation</td>
+							<td>!(os = windows) </td>
+						</tr>
+<tr>
+							<td><span class="spanlabel">NOT</span></td>
+							<td>logical negation</td>
+							<td>NOT(site = lsd)</td>
+						</tr>
+						<tr>
+							<td><span class="spanlabel">&&</span></td>
+							<td>logical and</td>
+							<td>(os = linux && site = lsd)</td>
+						</tr>
+<tr>
+							<td><span class="spanlabel">AND</span></td>
+							<td>logical and</td>
+							<td>(os = linux AND mem > 200) </td>
+						</tr>
+<tr>
+							<td><span class="spanlabel">||</span></td>
+							<td>logical or</td>
+							<td>(os = linux || os = hpux)</td>
+						</tr>
+<tr>
+							<td><span class="spanlabel">OR</span></td>
+							<td>logical or</td>
+							<td>(site = ufcg OR site = lsd)</td>
+						</tr>
+<tr>
+							<td><span class="spanlabel"><</span></td>
+							<td>less than </td>
+							<td>mem < 300 </td>
+						</tr>
+<tr>
+							<td><span class="spanlabel">></span></td>
+							<td>greater than</td>
+							<td>mem > 300</td>
+						</tr>
+<tr>
+							<td><span class="spanlabel"><=</span></td>
+							<td>less or equal than</td>
+							<td>mem <= 64</td>
+						</tr>
+<tr>
+							<td><span class="spanlabel">>=</span></td>
+							<td>greater or equal than </td>
+							<td>playpensize >= 30 </td>
+						</tr>
+<tr>
+							<td><span class="spanlabel">==</span></td>
+							<td>equal</td>
+							<td>os !== hpux </td>
+						</tr>
+<tr>
+							<td><span class="spanlabel">=</span></td>
+							<td>equal</td>
+							<td>os = hpux  </td>
+						</tr>
+<tr>
+							<td><span class="spanlabel">!=</span></td>
+							<td>not equal</td>
+							<td>os != hpux </td>
+						</tr>
+							
+					</tbody>
+				</table>
+<p><center><strong>Table 2:</strong>  Operators</center></p>
+				<hr>
+				<h3>Running a Job</h3>
+				<br>
+				<h4 id="site9">1. Via a Broker</h4>
+				<hr>
+				<p>A simple example job is available in the Broker package. To run the job click on the Add job link at your Broker GUI and select the JDF file you want to submit yo OurGrid. Use the Jobs tab to monitor your jobs status. If you prefer a command line interface, type:</p>
+				<ul>
+					<li>
+						To add a job<br>
+						<strong>$ broker addjob /etc/ourgrid/broker/examples/addJob/simplesjob.jdf</strong>
+					</li>
+					<li>
+						To monitor the status of a job<br>
+						<strong>$broker status -i=jobid</strong>
+					</li>
+				</ul>
+				<p>Simple example jobs are available in the Broker package.</p>
+<br>
+			<h4 id="site10">2. Via the Ourgrid Portal</h4>
+				<hr>
+				<p>To add a job via the Ourgrid Portal you must zip all needed files, including the JDF files, and submit it using the OurGrid plugin, as following:</p>
+				<ul>
+					<li>
+						<p>In order to add a job, upload your zip file using the OurGrid plugin, than select the desired job to run. After that, just press the submit button.</p>
+						<br>
+						<p class="textcenter"><a href="images/portal1.jpg" class="fancybox"> <img src="images/portal1.jpg" width="550" height="400"> </a>
+						<br>
+						<span class="label">Figure 1</span> Screenshot of OurGrid plugin at OurGridPortal, where the user is choosing a job from the uploaded zip.
+						</p>
+						<br>
+					</li>
+					<li>
+						<p>After the submission, a status tree will show up. You can monitor the status and download the output in this tree panel.</p>
+						<br>
+						<p class="textcenter"><a href="images/portal2.jpg" class="fancybox"> <img src="images/portal2.jpg" width="550" height="400"> </a>
+						<br>
+						<span class="label">Figure 2</span> Screenshot of the Job Status Panel at OurGridPortal.
+						</p>
+						<br>
+					</li>
+				</ul>
+<br>
+			<h4 id="site11">2. Via the Broker’s User Interface</h4>
+				<hr>
+				<p>To add a job via the OurGrid Broker Interface do the following. </p>
+				<ul>
+					<li>
+						<p>On the Broker GUI click on <strong>Add Job</strong> button.</p>
+						<br>
+						<p class="textcenter"><a href="images/broker-addjob1.png" class="fancybox"> <img src="images/broker-addjob1.png" width="500" height="400"> </a>
+						<br>
+						<span class="label">Figure 3</span> Screenshot of the Broker's GUI highlithing the Add Job link.
+						</p>
+						<br>
+						<br>
+					</li>
+					<li>
+						<p>In the file chooser, select the .jdf file of the job you want to submit.</p>
+						<br>
+						<p class="textcenter"><a href="images/broker-addjob2.png" class="fancybox"> <img src="images/broker-addjob2.png" width="500" height="400"> </a>
+						<br>
+						<span class="label">Figure 4</span> Screenshot of the Broker's GUI showing how to select a job.
+						</p>
+						<br>
+						<br>
+					</li>
+					<li>
+						<p>To check jobs’ status and to manage them go to the Jobs tab panel.</p>
+						<br>
+						<p class="textcenter"><a href="images/broker-addjob3.png" class="fancybox"> <img src="images/broker-addjob3.png" width="500" height="400"> </a>
+						<br>
+						<span class="label">Figure 5</span> Screenshot of the Broker's GUI status panel.
+						</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<hr>
+		
+		<footer class="well textcenter">
+			<p>
+			<span class="label label-info">Info</span> To access the previous page of ourgrid.org <a href="4.2.6/index.html">click here</a>
+			<br><br>
+			OurGrid is a trademark of the Federal University of Campina Grande
+			<br>
+			Contact us at contact@ourgrid.org
+			<br>
+			<a href="http://twitter.com/#!/OurGrid" target="_blank"><img src="images/mini-twitter.png" height="25"></a>
+			&nbsp;&nbsp;<a href="http://www.facebook.com/pages/OurGrid/170758666368005" target="_blank"><img src="images/mini-facebook.png" height="25"></a>
+			&nbsp;&nbsp;<a href="http://www.github.com/OurGrid" target="_blank"><img src="images/mini-github.png" height="25"></a>
+			</p>
+		</footer>
+		
+	</div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script src="js/fancybox/jquery.fancybox.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+
+<!-- Mirrored from ourgrid.lsd.ufcg.edu.br/use.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 23 Apr 2017 20:54:42 GMT -->
+</html>
+

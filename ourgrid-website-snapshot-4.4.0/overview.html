@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from ourgrid.lsd.ufcg.edu.br/overview.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 23 Apr 2017 20:54:24 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>OurGrid 4.4.0 has just been released!</title>
+    <meta name="description" content="ourgrid, p2p, grid, scheduling, open-source, lsd, ufcg">
+    <meta name="author" content="contact@ourgrid.org">
+    <link href="4.2.6/templates/lsd_ufcg_2/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    <!-- Le styles -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="js/fancybox/jquery.fancybox.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+<script type="text/javascript">
+/*
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32238696-1']);
+  _gaq.push(['_setDomainName', 'ourgrid.org']);
+
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+*/
+</script>
+
+  </head>
+
+  <body>
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "http://connect.facebook.com/en_US/all.js#xfbml=1&appId=198423843538352";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+	<div id="header">
+		<ul>
+	       		<li><img src="images/header-simple-logo.png"></li>
+	        	<li><a href="http://ourgrid.org/" target="_blank">ourgrid.org</a></li>
+			<li><a href="http://status.ourgrid.org/" target="_blank">status</a></li>
+			<li><a href="http://portal.ourgrid.org/" target="_blank">portal</a></li>
+			<li><a href="http://charts.ourgrid.org/" target="_blank">charts</a></li>
+			<li><a href="http://alfinete.lsd.ufcg.edu.br/ogdoctor/reports" target="_blank">doctor</a></li>
+	        </ul>
+	</div>
+
+	<div class="container">
+
+		<div class="page-header">
+			<p><a href="http://ourgrid.org/" target="_blank"><img src="images/ourgrid-banner.png"></a></p>
+			<div class="navbar">
+				<div class="navbar-inner">
+					<div class="container">
+						<ul class="nav">
+							<li><a href="index-2.html">Home</a></li>
+							<li><a href="overview.html">Overview</a></li>
+							<li><a href="whatsnew.html">What's new</a></li>
+							<li><a href="installingasite.html">Installing a Site</a></li>
+							<li><a href="use.html">Running a Job</a></li>
+							<li><a href="download.html">Download</a></li>
+							<li><a href="getinvolved.html">Get Involved</a></li>
+							<li><a href="http://www.ourgrid.org/4.2.6/index.php/pt/research" target="_blank">Research</a></li>
+							<li><a href="relatedprojects.html">Related Projects</a></li>
+						</ul>
+						<ul class="nav-social">
+							<li><a href="http://twitter.com/#!/OurGrid" target="_blank"><img src="images/mini-twitter.png" height="25"></a></li>
+							<li><a href="http://www.facebook.com/pages/OurGrid/170758666368005" target="_blank"><img src="images/mini-facebook.png" height="25"></a></li>
+							<li><a href="http://www.github.com/OurGrid" target="_blank"><img src="images/mini-github.png" height="25"></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		<div class="row">
+			<div class="span12 textjustify">
+				<h2>Overview</h2>
+				<hr>
+				<ol>
+					<li><a href="#about">About OurGrid</a></li>
+					<li><a href="#main_components">Main Components</a>
+						<p>
+							2.1. <a href="#broker">Broker</a>
+							<br>2.2. <a href="#worker">Worker</a>
+							<br>2.3. <a href="#peer">Peer</a>
+							<br>2.4. <a href="#ds">Discovery Service</a>
+						</p>
+					</li>
+					<li><a href="#NoF">The Network of Favours (NoF)</a></li>
+					<li><a href="#OurGrid_community">The OurGrid Community</a></li>
+				</ol>
+				<hr>
+				
+				<h3 id="about">About OurGrid</h3>
+				<br>
+				<p><Strong>OurGrid</Strong> is an open source grid middleware based on a peer-to-peer architecture. This middleware enables the creation of P2P(peer-to-peer) computational grids, and since, its first release in December 2004, it has been used by hundreds of users to speed up the execution of Bag-of-Tasks applications. These include parameter sweep simulations, image rendering, optimization algorithms, and many others.</p>
+				<p>Anyone can freely and easily join it to gain access to large amount of computational power and run parallel applications. This computational power is provided by the idle resources of all participants, and is shared in a way that makes those who contribute more get more when they need.</p>
+	
+				<p><strong>OurGrid</strong> </p>
+				<ul>
+					<li>Facilitates the sharing of instruments, computers, storage, data, information, expertise, etc.</li>
+					<li>Allows the federation of large amounts of resources.</li>
+					<li>Provides access to resources, otherwise, unreachable</li>
+					<li>Does all that in a dependable way</li> 
+					<li>Is secure, safe, reliable, highly available, easy-to-manage</li>
+				</ul>
+				<p>In P2P grids enabled by <Strong>OurGrid</Strong>, computing and storage resources originated from spare resources (idle CPUs and free disk space) are provided by a whole community of grid participants, and are shared in such a way as to make those who have contributed the most to get the most out of the grid whenever they need it.</p>
+				<p>OurGrid uses XMPP as its communication protocol. The Extensible Messaging and Presence Protocol (XMPP) is an open technology for real-time communication, which powers a wide range of applications including instant messaging, presence, multi-party chat, voice and video calls, collaboration, lightweight middleware, content syndication, and generalized routing of XML data. It allows federation, and it is internet-friendly, once several services can use the same XMPP server, so that the administrator just need to add a single firewall rule.</p> 
+				<p>The software is written in Java, allowing any resource capable of running a Java Virtual Machine to be tapped on to the grid.</p>
+				<p>The <strong>OurGrid</strong> has four main components:</p>
+				<ul>
+					<li>Broker.</li>
+					<li>Worker</li>
+					<li>Peer</li> 
+					<li>Discovery Service</li>
+				</ul>
+				<p>The figure below shows the main structure of the OurGrid.</p>
+				<br>
+				<p class="textcenter"><a href="images/OurGrid2.jpg" class="fancybox"> <img src="images/OurGrid2.jpg" width="600"> </a>
+				<br>
+				<span class="label">Figure 1</span> Overview of OurGrid.
+				</p>
+				<br>
+				<br>
+				<p>The user interacts with the Broker in order to submit and monitor jobs, the Worker runs in the machines that will execute the tasks, and the Peer is responsible for on-site resource discovery. </p>
+				<p>As depicted in the figure above, Brokers and Workers connect to a Peer, creating an OurGrid Site. The Discovery Service enables the communication between OurGrid sites connected to it, so that they can share their resources among them.</p>
+				<p>More details about each component can be found on their respective sections.</p>
+				<hr>
+								
+				<h3 id="broker">Broker</h3>
+				<br>
+				
+				<p>The Broker is the OurGrid's user frontend. With the Broker, the user can submit and monitor jobs. An OurGrid job is described in a JDF file, which is explained <a href="use.html#site1"> here</a>.</p>
+				<p>When a job is submitted, the Broker asks its Peer for Workers, so it can schedule the job’s tasks. Besides scheduling tasks to run on the Workers, it is also the Broker's role to stage data to/from Workers before and after the execution of tasks.</p>
+				<p>The screenshot below shows the job monitoring panel on the Broker’s GUI:</p>
+				
+				<p class="textcenter"><a href="images/broker-example.png" class="fancybox"> <img src="images/broker-example.png" width="450"> </a>
+				<br>
+				<span class="label">Figure 2</span> Screenshot of the Broker's GUI status panel.
+				</p>
+				<hr>
+				
+				<h3 id="worker">Worker</h3>
+				<br>
+				<p>The OurGrid Worker runs on the machines that will be available for task execution. The Worker provides necessary access and file transfer features to the Broker.</p>
+				<p>Another important feature the OurGrid Worker provides is virtualization. When virtualization is enabled, the Worker will execute OurGrid tasks inside a virtual machine, creating a sandboxed environment isolated from the host machine and without network. This approach avoids malicious tasks to access the host’s file system or to make the host part of a DDoS attack.</p>
+				<p>We provide two types of workers:</p>
+				<ul>
+					<li>Worker with virtualization
+						<ul>
+							<li>This kind of Worker will run their processes inside a virtual machine, creating an sandboxed environment providing more security for the user, because the processes running inside the virtual machine won't have access to network.</li>
+						</ul>
+					</li>	
+					
+					<li>Worker without virtualization
+						<ul>
+							<li>This kind of Worker won't run their processes inside an sandboxed environment, so they won't have any virtual machine installed to run the process inside, the process will run inside the real machine.</li>
+						</ul>
+					</li>
+				</ul>
+				
+				<p>The following screenshot is an example of the Worker’s GUI.</p>
+				<p class="textcenter"><a href="images/worker-example.png" class="fancybox"> <img src="images/worker-example.png" width="450"> </a>
+				<br>
+				<span class="label">Figure 3</span> Screenshot of the Broker's GUI configuration tab.
+				</p>
+				
+				<hr>
+				
+				<h3 id="peer">Peer</h3>
+				<br>
+				<p>From the user's perspective, a Peer is a Worker provider, i.e., a network service that dynamically provides Workers for task execution. From an administrative point of view, a Peer determines how and which machines can be used as workers.</p>
+				<p>A Peer is also able to communicate with other Peers, via the Discovery Service, in order to request additional resources, in case the Workers from its site aren’t enough to satisfy Brokers’ requests.</p>
+
+				<p>The screenshot below depicts the Worker's management panel on the Peer’s GUI.</p>
+				<p class="textcenter"><a href="images/peer-example.png" class="fancybox"> <img src="images/peer-example.png" width="450"> </a>
+				<br>
+				<span class="label">Figure 4</span> Screenshot of the Worker's tab on the Peer's GUI.
+				</p>
+				<hr>
+				
+				<h3 id="ds">Discovery Service</h3>
+				<br>
+				<p>The OurGrid Discovery Service is responsible for connecting multiple OurGrid sites, so that several Peers can interact and exchange computational resources.</p>
+				<p>The screenshot belows depicts a status query in a Discovery Service.</p>
+				<p class="textcenter"><a href="images/ds-example.png" class="fancybox"> <img src="images/ds-example.png" width="450"> </a>
+				<br>
+				<span class="label">Figure 5</span> Screenshot of the DS status command result.
+				<p>The accounting of this resource sharing is stored as <strong>favours</strong> in a distributed fashion, and it is used by the Network of Favours towards a fair resource exchanging.</p>
+				<hr>
+				
+				<h3 id="NoF">The Network of Favours</h3>
+				<p>To encourage resource contribution to the network, OurGrid uses a resource allocation mechanism based on reputation called Network of Favours. Peers that donate more resources in the community have a better reputation on it, and are prioritized when they request resources. This way, there is an incentive for each Peer to contribute as much as possible to the system. Also, this policy also tries to discourage freeriders - the Peers that consume the resources available in the community but never pay back by donating resources.</p>
+				<p>To identify Peers in the the Network of Favours, OurGrid uses DER certificates based on the X.509 Public Key Infrastructure.</p>
+				<br>
+				<hr>
+				
+				<h3 id="OurGrid_community">The OurGrid Community</h3>
+				<br>
+				<p>Besides maintaining the OurGrid Middleware, we keep an active OurGrid community at the <a href="http://www.ufcg.edu.br/" target="_blank">UFCG</a>. You can connect your Peer to our Discovery Service (<strong>lsd-ds@xmpp.ourgrid.org</strong>) to share your site’s resources and help our community to keep growing. You can see our community status at the <a href="http://status.ourgrid.org/" target="_blank">status page</a>.</p>
+				<p>If don’t run an OurGrid site and you still want to contribute to our community, you can install a standalone Worker on your machine and connect to our Voluntary Peer, which is a Peer any Worker can connect to. Just set the property <strong>worker.peer.address</strong> to <strong>lsd-voluntary-peer@xmpp.ourgrid.org</strong> and your Worker will be connected to our Peer.</p>
+				<p>Also, if you want to submit jobs to our OurGrid community and you don’t have a Broker running on your machine, you can use the <a href="http://portal.ourgrid.org/" target="_blank">OurGrid Portal</a> for that.</p>				
+			</div>
+		</div>
+		
+		<hr>
+		
+		<footer class="well textcenter">
+			<p>
+			<span class="label label-info">Info</span> To access the previous page of ourgrid.org <a href="4.2.6/index.html">click here</a>
+			<br><br>
+			OurGrid is a trademark of the Federal University of Campina Grande
+			<br>
+			Contact us at contact@ourgrid.org
+			<br>
+			<a href="http://twitter.com/#!/OurGrid" target="_blank"><img src="images/mini-twitter.png" height="25"></a>
+			&nbsp;&nbsp;<a href="http://www.facebook.com/pages/OurGrid/170758666368005" target="_blank"><img src="images/mini-facebook.png" height="25"></a>
+			&nbsp;&nbsp;<a href="http://www.github.com/OurGrid" target="_blank"><img src="images/mini-github.png" height="25"></a>
+			</p>
+		</footer>
+		
+	</div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script src="js/fancybox/jquery.fancybox.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+
+<!-- Mirrored from ourgrid.lsd.ufcg.edu.br/overview.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 23 Apr 2017 20:54:32 GMT -->
+</html>
+

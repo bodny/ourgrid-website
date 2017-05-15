@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from ourgrid.lsd.ufcg.edu.br/configurationfiles.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 23 Apr 2017 23:30:11 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>OurGrid 4.4.0 has just been released!</title>
+    <meta name="description" content="ourgrid, p2p, grid, scheduling, open-source, lsd, ufcg">
+    <meta name="author" content="contact@ourgrid.org">
+    <link href="4.2.6/templates/lsd_ufcg_2/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    <!-- Le styles -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="js/fancybox/jquery.fancybox.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+<script type="text/javascript">
+/*
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32238696-1']);
+  _gaq.push(['_setDomainName', 'ourgrid.org']);
+
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+*/
+</script>
+
+  </head>
+
+  <body>
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "http://connect.facebook.com/en_US/all.js#xfbml=1&appId=198423843538352";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+	<div id="header">
+		<ul>
+	       		<li><img src="images/header-simple-logo.png"></li>
+	        	<li><a href="http://ourgrid.org/" target="_blank">ourgrid.org</a></li>
+			<li><a href="http://status.ourgrid.org/" target="_blank">status</a></li>
+			<li><a href="http://portal.ourgrid.org/" target="_blank">portal</a></li>
+			<li><a href="http://charts.ourgrid.org/" target="_blank">charts</a></li>
+			<li><a href="http://alfinete.lsd.ufcg.edu.br/ogdoctor/reports" target="_blank">doctor</a></li>
+	        </ul>
+	</div>
+
+	<div class="container">
+
+		<div class="page-header">
+			<p><a href="http://ourgrid.org/" target="_blank"><img src="images/ourgrid-banner.png"></a></p>
+			<div class="navbar">
+				<div class="navbar-inner">
+					<div class="container">
+						<ul class="nav">
+							<li><a href="index-2.html">Home</a></li>
+							<li><a href="overview.html">Overview</a></li>
+							<li><a href="whatsnew.html">What's new</a></li>
+							<li><a href="installingasite.html">Installing a Site</a></li>
+							<li><a href="use.html">Running a Job</a></li>
+							<li><a href="download.html">Download</a></li>
+							<li><a href="getinvolved.html">Get Involved</a></li>
+							<li><a href="http://www.ourgrid.org/4.2.6/index.php/pt/research" target="_blank">Research</a></li>
+							<li><a href="relatedprojects.html">Related Projects</a></li>
+						</ul>
+						<ul class="nav-social">
+							<li><a href="http://twitter.com/#!/OurGrid" target="_blank"><img src="images/mini-twitter.png" height="25"></a></li>
+							<li><a href="http://www.facebook.com/pages/OurGrid/170758666368005" target="_blank"><img src="images/mini-facebook.png" height="25"></a></li>
+							<li><a href="http://www.github.com/OurGrid" target="_blank"><img src="images/mini-github.png" height="25"></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		<div class="row">
+			<div class="span12 textjustify">
+				<h2>Configuration Properties</h2>
+<hr>
+				<p>Each <strong>OurGrid</strong> component has a configuration file that defines some properties to its execution. The properties file is located in the component installation directory, named as the following pattern: <strong>&lt;&lt;component_name&gt;&gt;.properties</strong>. In this section these properties are explained.</p>
+			
+	<h3>Component Properties</h3>
+
+				<ol>
+					<li><a href="#prop1">Common properties</a></li>
+					<li><a href="#prop2">Peer properties</a></li>
+					<li><a href="#prop3">Worker properties</a></li>
+					<li><a href="#prop4">Broker properties</a></li>
+					<li><a href="#prop5">Discovery Service (DS) properties</a></li>
+					<li><a href="#prop6">Aggregator properties</a></li>
+				</ol>
+
+				<br>
+				<h4 id="prop1">1. Common Properties</h4>
+				<hr>
+				<p>Each component has its own properties file, but some properties are common for all components. See in the following table:</p>
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>Property</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr><td class="tablelabel">confdir</td><td>Sets the installation directory of the component (ex.: /etc/ourgrid/peer)</td></tr>
+						<tr><td class="tablelabel">sync.logger</td><td>Possible values: yes | no</td></tr>
+						<tr><td class="tablelabel">commune.xmpp.username</td><td>Username used by the component to connect the XMPP Server (ex.: homemachine)</td></tr>
+						<tr><td class="tablelabel">commune.xmpp.password</td><td>Password used by the component to log into the XMPP Server</td></tr>
+						<tr><td class="tablelabel">commune.xmpp.servername</td><td>Address of the XMPP server to connect (ex.: xmpp.ourgrid.org)</td></tr>
+						<tr><td class="tablelabel">commune.xmpp.serversecureport</td><td>The port used to secure connections to the XMPP Server (ex.: 5223)</td></tr>
+						<tr><td class="tablelabel">commune.xmpp.checkresource</td><td>Possible values: yes | no</td></tr>
+						<tr><td class="tablelabel">commune.xmpp.serverport</td><td>The port of XMPP Server to connect (ex.: 5222)</td></tr>
+						<tr><td class="tablelabel">commune.publickey</td><td>Key used by the receivers to read messages encrypted and sent by the component. The value is a hash key that is generated by the component start process.</td></tr>
+						<tr><td class="tablelabel">commune.privatekey</td><td>Key used by the component to encrypt messages. The value is a hash key generated by the component start process.</td></tr>
+						<tr><td class="tablelabel">commune.filetransfer.max.simultaneous</td><td>Defines the maximum number of files to be transferred simultaneously (ex.: 10)</td></tr>
+						<tr><td class="tablelabel">commune.filetransfer.notify.progress</td><td>Possible values: yes | no</td></tr>
+						<tr><td class="tablelabel">commune.filetransfer.timeout</td><td>Defines the amount of time to wait for a file transfer (ex.: 120)</td></tr>
+						<tr><td class="tablelabel">commune.usemonitor</td><td>Possible values: yes | no</td></tr>
+						<tr><td class="tablelabel">commune.certification.file.mycertificatefilepath</td><td>Define the path to the certificate used by the component (ex.: /etc/ourgrid/peer/certification/mycertificate/mycertificate.cer)</td></tr>
+						<tr><td class="tablelabel">commune.fd.wan.detectiontime</td><td></td></tr>
+						<tr><td class="tablelabel">commune.fd.wan.heartbeatdelay</td><td></td></tr>
+						<tr><td class="tablelabel">commune.fd.lan.detectiontime</td><td></td></tr>
+						<tr><td class="tablelabel">commune.fd.lan.heartbeatdelay</td><td></td></tr>
+						<tr><td class="tablelabel">commune.fd.localhost.heartbeatdelay</td><td></td></tr>
+						<tr><td class="tablelabel">commune.fd.localhost.detectiontime</td><td></td></tr>
+					</tbody>
+				</table>
+
+			
+				<br>
+				<h4 id="prop2">2. Peer Properties</h4>
+				<hr>
+				
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>Property</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr><td class="tablelabel">peer.label</td><td>String used as screen name for the Peer on the community (ex.: Lab Peer)</td></tr>
+						<tr><td class="tablelabel">peer.description</td><td>Peer at school lab</td></tr>
+						<tr><td class="tablelabel">peer.joincommunity</td><td>If the Peer should join and share available resources with the community. Possible values: yes | no</td></tr>
+						<tr><td class="tablelabel">peer.register.ondemand</td><td>Enables on demand registration for users (Brokers). If yes, any Broker can connect and submit jobs to the Peer. Possible values: yes | no</td></tr>
+						<tr><td class="tablelabel">peer.voluntary</td><td>Set the Peer to work as voluntary peer and any Worker can connect. Possible values: yes | no</td></tr>
+						<tr><td class="tablelabel">peer.email</td><td>The email address of the Peer administrator.</td></tr>
+						<tr><td class="tablelabel">peer.rankingfile</td><td>Path to the file where the community peers credits must be saved. (ex.: /etc/ourgrid/peer/rankings.dat)</td></tr>
+						<tr><td class="tablelabel">peer.usevomsauth</td><td></td></tr>
+						<tr><td class="tablelabel">peer.vomsurl</td><td></td></tr>
+						<tr><td class="tablelabel">peer.repeatrequest</td><td></td></tr>
+						<tr><td class="tablelabel">peer.longitude</td><td></td></tr>
+						<tr><td class="tablelabel">peer.latitude</td><td></td></tr>
+						<tr><td class="tablelabel">peer.ds.overloaded.retrydelay</td><td></td></tr>
+						<tr><td class="tablelabel">peer.ds.network</td><td>The address of the Discovery Service to connect (ex.: lsd-ds@xmpp.ourgrid.org)</td></tr>
+						<tr><td class="tablelabel">peer.ds.update</td><td></td></tr>
+						<tr><td class="tablelabel">peer.ds.requestsize</td><td></td></tr>
+						<tr><td class="tablelabel">peer.interval.saving</td><td></td></tr>
+						<tr><td class="tablelabel">peer.requesting.cacertificate.path</td><td>Path to the certificate used to identify the Peer when requesting resources from others Peers</td></tr>
+						<tr><td class="tablelabel">peer.receiving.cacertificate.path</td><td>Path to the certificate used to identify the Peer when donating resources to others Peers</td></tr>
+						<tr><td class="tablelabel">peer.accounting.cpuunit</td><td></td></tr>
+						<tr><td class="tablelabel">peer.accounting.dataunit</td><td></td></tr>
+					</tbody>
+				</table>
+
+				<br>
+				<h4 id="prop3">3. Worker Properties</h4>
+				<hr>
+				
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>Property</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr><td class="tablelabel">worker.peer.address</td><td>The Peer address to connect as registered in the XMPP Server</td></tr>
+						<tr><td class="tablelabel">worker.executor</td><td>The Executor responsible for run tasks</td></tr>
+						<tr><td class="tablelabel">worker.storagedir</td><td></td></tr>
+						<tr><td class="tablelabel">worker.playpenroot</td><td></td></tr>
+						<tr><td class="tablelabel">worker.idlenessdetector</td><td>Defines if the worker must wait the resource be idle to set it as available to run tasks. Possible values: yes | no</td></tr>
+						<tr><td class="tablelabel">worker.idlenesstime</td><td>Defines how many time the worker must wait before set resource as available. The value is set in seconds (ex.: 1200)</td></tr>
+						<tr><td class="tablelabel">worker.spec.file</td><td>Path to file used to add specific properties that can be used as requirement clauses into submitted job. The file must be follow the pattern 'key=value'</td></tr>
+						<tr><td class="tablelabel">worker.spec.reporttime</td><td></td></tr>
+						<tr><td class="tablelabel">worker.spec.report</td><td></td></tr>
+						<tr><td class="tablelabel">worker.use.idlenessdetector.schedule</td><td></td></tr>
+						<tr><td class="tablelabel">worker.idlenessdetector.scheduletime</td><td></td></tr>
+						<tr><td class="tablelabel">worker.xidletime64.path</td><td>Path to the lib xidletime compatible with 64 bits machines</td></tr>
+						<tr><td class="tablelabel">worker.xidletime32.path</td><td>Path to the lib xidletime compatible with 32 bits machines</td></tr>
+						<tr><td class="tablelabel">vm.hypervisor.type</td><td>The virtualization environment in use. (ex.: VSERVER, VBOX)</td></tr>
+						<tr><td class="tablelabel">vm.disk.path</td><td>Path to the image used by the virtual machine</td></tr>
+						<tr><td class="tablelabel">vm.name</td><td>The name of the virtual machine used to run tasks</td></tr>
+						<tr><td class="tablelabel">vm.user</td><td>The username to log into the virtual machine</td></tr>
+						<tr><td class="tablelabel">vm.password</td><td>The password to log into the virtual machine</td></tr>
+						<tr><td class="tablelabel">vm.disk.type</td><td>Type of the disk controller. (ex.: ide)</td></tr>
+						<tr><td class="tablelabel">vm.os</td><td>The OS used in the virtual machine (ex.: windows, linux)</td></tr>
+						<tr><td class="tablelabel">vm.os.version</td><td>Specify the OS version used in the Virtual Machine, by default the OS is Ubuntu</td></tr>
+						<tr><td class="tablelabel">vm.memory</td><td>Amount of memory allocated to the virtual machine. (ex.: 128)</td></tr>
+					</tbody>
+				</table>
+
+				<br>
+				<h4 id="prop4">4. Broker Properties</h4>
+				<hr>
+				
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>Property</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr><td class="tablelabel">broker.peer.address</td><td>Define the Peer address to connect</td></tr>
+						<tr><td class="tablelabel">broker.replica.executors</td><td></td></tr>
+						<tr><td class="tablelabel">broker.persist.jobid</td><td>Set if the broker should persist the last job id or if the id can be reseted every time the broker is restarted</td></tr>
+						<tr><td class="tablelabel">broker.persist.jobid.path</td><td>The path to the file where the broker will persist the job id</td></tr>
+						<tr><td class="tablelabel">broker.heuristic</td><td>The heuristic used to schedule jobs</td></tr>
+						<tr><td class="tablelabel">broker.max.blacklist.fails</td><td>How many failures the broker should wait before add a worker to the blacklist</td></tr>
+						<tr><td class="tablelabel">broker.maxfails</td><td>The limit of times that the broker must try to execute a task after a fail</td></tr>
+						<tr><td class="tablelabel">broker.maxreplicas</td><td>The maximum number of replicas per task to execute</td></tr>
+						<tr><td class="tablelabel">mg.max.blacklist.fails</td><td></td></tr>
+						<tr><td class="tablelabel">mg.maxreplicas</td><td></td></tr>
+						<tr><td class="tablelabel">mg.maxfails</td><td></td></tr>
+						<tr><td class="tablelabel">mg.storagedir</td><td></td></tr>
+						<tr><td class="tablelabel">mg.persist.jobid</td><td></td></tr>
+						<tr><td class="tablelabel">mg.heuristic</td><td></td></tr>
+					</tbody>
+				</table>
+
+				<br>
+				<h4 id="prop5">5. Discovery Service (DS) Properties</h4>
+				<hr>
+				
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>Property</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr><td class="tablelabel">ds.max.reponse.size</td><td></td></tr>
+						<tr><td class="tablelabel">ds.overload.threshold</td><td></td></tr>
+					</tbody>
+				</table>
+
+					<br>
+				<h4 id="prop6">6. Aggregator Properties</h3>
+				<hr>
+				
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>Property</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr><td class="tablelabel">aggregator.ds.username</td><td>The username of the DS registered in the XMPP Server</td></tr>
+						<tr><td class="tablelabel">aggregator.ds.servername</td><td>The XMPP Server Address</td></tr>
+						<tr><td class="tablelabel">logfile</td><td></td></tr>
+					</tbody>
+				</table>
+				
+				
+			</div>
+		</div>
+		
+		<hr>
+		
+		<footer class="well textcenter">
+			<p>
+			<span class="label label-info">Info</span> To access the previous page of ourgrid.org <a href="4.2.6/index.html">click here</a>
+			<br><br>
+			OurGrid is a trademark of the Federal University of Campina Grande
+			<br>
+			Contact us at contact@ourgrid.org
+			<br>
+			<a href="http://twitter.com/#!/OurGrid" target="_blank"><img src="images/mini-twitter.png" height="25"></a>
+			&nbsp;&nbsp;<a href="http://www.facebook.com/pages/OurGrid/170758666368005" target="_blank"><img src="images/mini-facebook.png" height="25"></a>
+			&nbsp;&nbsp;<a href="http://www.github.com/OurGrid" target="_blank"><img src="images/mini-github.png" height="25"></a>
+			</p>
+		</footer>
+		
+	</div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script src="js/fancybox/jquery.fancybox.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+
+<!-- Mirrored from ourgrid.lsd.ufcg.edu.br/configurationfiles.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 23 Apr 2017 23:30:11 GMT -->
+</html>
+

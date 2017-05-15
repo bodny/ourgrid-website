@@ -1,0 +1,100 @@
+@CHARSET "UTF-8";
+
+h1,h2,h3,h4,h5,h6,legend, .hero-unit h1{
+	color: #1f3e80;
+}
+
+#header {
+	margin-bottom: 15px;
+	height: 42px;
+	padding: 2px;
+	background: #333;
+	text-align:left;
+}
+
+#header img {
+	margin: 3px;
+}
+
+#header ul {
+	color: #FFF; 
+	display: table;
+	margin: 0;
+}
+
+#header ul li {
+	display: table-cell; 
+	vertical-align: middle;
+	padding-right: 20px;
+	font-weight: bold;
+	font-size: 16px;
+	color:#CCC;
+}
+
+#header ul li a{
+	color: #ccc;
+}
+
+#header ul li a:hover {
+	color:#FFF;
+	text-decoration: none;
+}
+
+.navbar-inner {
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.navbar .nav > li > a {
+	padding-right: 8px;
+	padding-left: 6px;
+}
+
+.textjustify{
+	text-align: justify;
+}
+
+.textcenter{
+	text-align: center;
+}
+
+ul.labs li div.thumbnail{
+	height: 200px;
+	padding: 15px;
+}
+
+.tablelabel{
+	color: #800517;
+	width: 300px;
+}
+
+.spanlabel{
+	color: #800517;
+	font-weight: bold;
+}
+
+.nav-social{
+	list-style: none;
+	margin: 0;
+	padding: 10px 0 0 0;
+	height: 20px;
+	display: block;
+	float: right;
+}
+
+.nav-social li{
+	float: left;
+	display: block;
+	margin: 3px;
+}
+
+.ourgrid-banner{
+	height: 125px;
+	display: block;
+	background-image: url(../images/ourgrid-banner.png);
+	margin-bottom: 10px;
+}
+
+.fb-like{
+	float: left;
+}

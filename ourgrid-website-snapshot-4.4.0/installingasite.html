@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from ourgrid.lsd.ufcg.edu.br/installingasite.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 23 Apr 2017 20:54:32 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>OurGrid 4.4.0 has just been released!</title>
+    <meta name="description" content="ourgrid, p2p, grid, scheduling, open-source, lsd, ufcg">
+    <meta name="author" content="contact@ourgrid.org">
+    <link href="4.2.6/templates/lsd_ufcg_2/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    <!-- Le styles -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="js/fancybox/jquery.fancybox.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+<script type="text/javascript">
+/*
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32238696-1']);
+  _gaq.push(['_setDomainName', 'ourgrid.org']);
+
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+*/
+</script>
+
+  </head>
+
+  <body>
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "http://connect.facebook.com/en_US/all.js#xfbml=1&appId=198423843538352";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+	<div id="header">
+		<ul>
+	       		<li><img src="images/header-simple-logo.png"></li>
+	        	<li><a href="http://ourgrid.org/" target="_blank">ourgrid.org</a></li>
+			<li><a href="http://status.ourgrid.org/" target="_blank">status</a></li>
+			<li><a href="http://portal.ourgrid.org/" target="_blank">portal</a></li>
+			<li><a href="http://charts.ourgrid.org/" target="_blank">charts</a></li>
+			<li><a href="http://alfinete.lsd.ufcg.edu.br/ogdoctor/reports" target="_blank">doctor</a></li>
+	        </ul>
+	</div>
+
+	<div class="container">
+
+		<div class="page-header">
+			<p><a href="http://ourgrid.org/" target="_blank"><img src="images/ourgrid-banner.png"></a></p>
+			<div class="navbar">
+				<div class="navbar-inner">
+					<div class="container">
+						<ul class="nav">
+							<li><a href="index-2.html">Home</a></li>
+							<li><a href="overview.html">Overview</a></li>
+							<li><a href="whatsnew.html">What's new</a></li>
+							<li><a href="installingasite.html">Installing a Site</a></li>
+							<li><a href="use.html">Running a Job</a></li>
+							<li><a href="download.html">Download</a></li>
+							<li><a href="getinvolved.html">Get Involved</a></li>
+							<li><a href="http://www.ourgrid.org/4.2.6/index.php/pt/research" target="_blank">Research</a></li>
+							<li><a href="relatedprojects.html">Related Projects</a></li>
+						</ul>
+						<ul class="nav-social">
+							<li><a href="http://twitter.com/#!/OurGrid" target="_blank"><img src="images/mini-twitter.png" height="25"></a></li>
+							<li><a href="http://www.facebook.com/pages/OurGrid/170758666368005" target="_blank"><img src="images/mini-facebook.png" height="25"></a></li>
+							<li><a href="http://www.github.com/OurGrid" target="_blank"><img src="images/mini-github.png" height="25"></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		<div class="row">
+			<div class="span12 textjustify">
+			
+				<h2 id="menu">Installing a site</h2>
+				<hr>
+				<p>A site is a set of resources installed under the same administrative domain, used to submit, manage and execute jobs. A site is composed by a Peer, Brokers and Workers, and it shares resources with others sites. Moreover, you can connect several sites with a Discovery Service. To read more about the OurGrid architecture, go to the <a href="overview.html">Overview</a> page.</p>
+				<br>
+				<h3>Preparing to install</h3>
+				<ul>
+					<li><a href="#settingupenvironment">Setting up the environment</a>
+				</ul>
+				<br>
+				<h3>XMPP Server</h3>
+				<ul>
+					<li><a href="http://prosody.im/" target="_blank">Prosody</a></li>
+					<li><a href="#xmpp">Ejabberd (deprecated)</a></li>
+				</ul>
+				<br>
+				<h3>Peer</h3>
+				<ul>
+					<li><a href="#peerlinuxdeb">Linux Debian-based (.deb)</a></li>
+					<li><a href="#peerlinuxredhat">Linux Red Hat-based (.rpm)</a></li>
+					<li><a href="#peermswindows">Microsoft Windows (.exe)</a></li>
+					<li><a href="#peerothers">Other operating systems</a></li>
+				</ul>
+				<br>
+				<h3>Worker</h3>
+				<ul>
+					<li><a href="#workerlinuxdeb">Linux Debian-based (.deb)</a></li>
+					<li><a href="#workerlinuxredhat">Linux Red Hat-based (.rpm)</a></li>
+					<li><a href="#workermswindows">Microsoft Windows (.exe)</a></li>
+					<li><a href="#workermacos">MacOS (.pkg)</a></li>
+					<li><a href="#workerothers">Other operating systems</a></li>
+				</ul>
+				<br>
+				<h3>Discovery Service</h3>
+				<ul>
+					<li><a href="#dslinuxdeb">Linux Debian-based (.deb)</a></li>
+					<li><a href="#dslinuxredhat">Linux Red Hat-based (.rpm)</a></li>
+					<li><a href="#dsothers">Other operating systems</a></li>
+				</ul>
+				<br>
+				<h3>Broker</h3>
+				<ul>
+					<li><a href="#brokerlinuxdeb">Linux Debian-based (.deb)</a></li>
+					<li><a href="#brokerlinuxredhat">Linux Red Hat-based (.rpm)</a></li>
+					<li><a href="#brokermswindows">Microsoft Windows (.exe)</a></li>
+					<li><a href="#brokerothers">Other operating systems</a></li>
+				</ul>
+				<br>
+				<hr>
+				
+				<h3>Preparing to install <a href="javascript:window.scrollTo(0,0);" class="pull-right"><i class="icon-chevron-up"></i> top</a></h3>
+				<hr>
+				<h4 id="settingupenvironment">Setting up the environment</h4>
+				<br>
+				<p>The <strong>OurGrid</strong> middleware requires <strong>Java Runtime Enviroment 1.6</strong> or later. 
+				<ul><li>To check the Java version installed on your system, type in a terminal console the following command:</p>
+				<p><strong>$ java -version</strong></p></li>
+				<li><p>If Java is installed, this command will prompt the Java version. If the machine does not have the JRE 1.6 (or later) installed, you must install it.</li></ul>
+				<!-- <p><span class="label label-info">Info</span> It is recommended that you use the Sun JRE Distribution available at <a href="http://www.java.com" target="_blank">http://www.java.com</a>.</p>-->
+				<br>
+				<hr>
+				<br>
+				
+				<h3 id="xmpp">XMPP Server<a href="javascript:window.scrollTo(0,0);" class="pull-right"><i class="icon-chevron-up"></i> top</a></h3>
+				<hr>
+				<p>Since version 4.0, <strong>OurGrid</strong> uses a new communication infrastructure, called <strong>Commune</strong> that it is built on top of XMPP (<i>Extensivel Messaging and Presence Protocol</i>). Thus, every communication between <strong>OurGrid</strong> components is intermediated by an XMPP server.</p>
+				<p><strong>OurGrid</strong> components are certified to work with the Jabber server (<strong>ejabberd</strong>), in order to install ejabberd see the <a href="ejabberd.html" title="Ejabberd Installation">Ejabberd Installation</a> section.</p>
+				<hr>
+				
+				<h3>Peer <a href="javascript:window.scrollTo(0,0);" class="pull-right"><i class="icon-chevron-up"></i> top</a></h3>
+				<br>
+				<p>The <strong>Peer</strong> is <i>the manager of an OurGrid site</i>. This component is responsible for managing the resources of the site, requesting resources from other sites to local clients and donating local resources to other Peers.</p>
+				<hr>
+				<h4 id="peerlinuxdeb">Linux Debian-based (.deb)</h4>
+				<br>
+				<ul>
+					<li><h4>Installation via terminal console</h4></li><br>
+					<ol>
+						<li>Add the following OurGrid repository to your sources list:<br>
+						<strong>deb http://packages.lsd.ufcg.edu.br/apt stable main</strong></li>
+						<li>Open a terminal console and execute the following command:<br>
+						<strong>$ sudo apt-get install ourgrid-peer</strong></li><br>
+						<li>And you will be prompted to define some parameters like:
+							<br><br>
+							<table class="table table-bordered">
+								<tbody>
+									<tr>
+										<td><strong>Parameter</strong></td>
+										<td><strong>Description</strong></td>
+									</tr>
+									<tr>
+										<td><FONT COLOR="#800517"><strong>XMPP Username</strong></FONT></td>
+										<td>The username used to login to the XMPP Server. By default this parameter uses the hostname of the machine. </td>
+									</tr>
+									<tr>
+										<td><FONT COLOR="#800517"><strong>XMPP Servername </strong></FONT></td>
+										<td>The XMPP server address. If you want use the OurGrid XMPP server, let this parameter with default value <strong>xmpp.ourgrid.org. </td>
+									</tr>
+									<tr>
+										<td><FONT COLOR="#800517"><strong>XMPP Password</strong></FONT></td>
+										<td>The password of the XMPP account.</td>
+									</tr>
+								</tbody>
+							</table>
+						</li>
+						<li>After it, the installation process will be finished.</li>
+					</ol><br>
+					<br>
+					
+					<li><h4>Installation via package manager (Synaptic)</h4></li>
+					<br>
+					<ol>
+						<li>Add the following OurGrid repository to your sources list:<br>
+						<strong>deb http://packages.lsd.ufcg.edu.br/apt stable main</strong></li>
+						<li>Open the Synaptic.</li>
+						<li>Search for ourgrid-peer.</li>
+						<li>Mark it for install.</li>
+						<li>The installation will prompt you for the same parameters listed in the previous section.</li>
+						<li>After it, the installation process will be finished.</li>
+					</ol><br>
+					
+					<li><h4>Installation via .deb package</h4></li>
+					<br>
+					<ol>
+						<li>Go to the <a href="download.html">download</a> page and get the OurGrid Peer .deb package</li>
+						<li>You have two ways to install the package:
+							<ul>
+								<li>In a terminal console execute the command: <strong>$ sudo dpkg -i &lt;&lt;deb package&gt;&gt;</strong>, or</li>
+								<li>Search the package on the Nautilus file explorer and execute it with a double-click</li>
+							</ul>
+						</li>
+						<li>The installation will prompt you for the same parameters listed in the previous section.</li>
+						<li>After it, the installation process will be finished.</li>
+					</ol><br>
+					
+					<p><span class="label label-info">Info</span> You can modify the configuration of each <strong>OurGrid</strong> component by using the propierties files. To learn more about the properties files see <a href="configurationfiles.html" title="Configuration Properties">Configuration Properties</a> section.</p>
+					<br>
+				</ul>
+				<h4 id="peerlinuxredhat">Linux Red Hat-based (.rpm)</h4>
+				<br>
+				<li><h4>Installation via .rpm package</h4></li>
+					<br>
+					<ol>
+						<li>Go to the <a href="download.html">download</a> page and get the OurGrid Peer .rpm package</li>
+						<li>You have two ways to install the package:
+							<ul>
+								<li>In a terminal console execute the command: <strong>$ sudo rpm -i --force &lt;&lt;rpm package&gt;&gt;</strong>, or</li>
+								<li>Find the .rpm file and double click to install</li>
+							</ul>
+						</li>
+						<li>After the installation is done, you can change the Peer's properties at <strong>/etc/ourgrid/peer/peer.properties</strong></li>
+					</ol><br>
+					
+					<p><span class="label label-info">Info</span> You can modify the configuration of each <strong>OurGrid</strong> component by using the propierties files. To learn more about the properties files see <a href="configurationfiles.html" title="Configuration Properties">Configuration Properties</a> section.</p>
+				<br>
+				<h4 id="peermswindows">Microsoft Windows</h4>
+				<br>
+				<ol><li>Download OurGrid Peer installer for Windows in the <a href="download.html#windows">Download</a> section.</li>
+				<li>Run the installer.</li>
+				<li>And you will be prompted to define some parameters like:
+				<br><br>
+				<table class="table table-bordered">
+					<tbody>
+						<tr>
+							<td><strong>Parameter</strong></td>
+							<td><strong>Description</strong></td>
+						</tr>
+						<tr>
+							<td><FONT COLOR="#800517"><strong>XMPP Username</strong></FONT></td>
+							<td>The username used to login to the XMPP Server. By default this parameter uses the hostname of the machine. </td>
+						</tr>
+						<tr>
+							<td><FONT COLOR="#800517"><strong>XMPP Servername </strong></FONT></td>
+							<td>The XMPP server address. If you want use the OurGrid XMPP server, let this parameter with default value <strong>xmpp.ourgrid.org. </td>
+						</tr>
+						<tr>
+							<td><FONT COLOR="#800517"><strong>XMPP Password</strong></FONT></td>
+							<td>The password of the XMPP account.</td>
+						</tr>
+					</tbody>
+				</table></li>
+				<li>After it, the installation process will be finished. After the installation, go to <strong>Start -> All Programs -> OurGrid -> Peer</strong> and click in the <strong>"start"</strong> link in the Peer GUI.</li>
+				</ol><br>
+				<p><span class="label label-info">Info</span> You can modify the configuration of each <strong>OurGrid</strong> component by using the propierties files. To learn more about the properties files see <a href="configurationfiles.html" title="Configuration Properties">Configuration Properties</a> section.</p><br>
+				
+				<h4 id="peerothers">Other operating systems</h4>
+				<br>
+				<ol>
+					<li>Download the zip version of the OurGrid Peer <a href="download.html">here</a>.</li>
+					<li>Unpack the downloaded package.</li>
+					<li>The resulting unpacked tree looks like this:
+						<ul>
+							<li>certification/ - Stores X.509 certificates</li>
+							<li>lib/ - Jars</li> 
+							<li>COPYING - License file</li>
+							<li>COPYING.LESSER - License file</li>
+							<li>peer - Unix script</li>
+							<li>peer.bat - Windows script</li>
+							<li>peer.poperties - Peer configuration</li>
+							<li>testjvm - Unix script used to find Java</li>
+						</ul>
+					<li>You can use the Peer Console or the Peer GUI. In order to run the Peer GUI, double click the
+					peer.bat file (Windows) or type 'bash peer gui' (Linux). You will see a GUI like this:
+					<p class="textcenter"><a href="http://www3.ourgrid.org/" class="fancybox"><img src="http://www3.ourgrid.org/" width="600"></a>
+					<br>
+					<span class="label">Figure 1</span> Screenshot of the Peer's GUI XMPP configuration tab.
+					</p>
+					</li>
+				</ol>
+				<p>The GUI automatically suggests the XMPP user name, password and server name. You may change the user name to the name of your peer. If you are using other XMPP server (for example, if you have installed one in your site), change the server name property.</p>
+ 
+				<span class="label label-important">Important</span> The server name must match the exact address set in the Openfire's xmpp.domain property. To view the value of this property, open the Openfire admin console and go to Server > Server Manager > System properties > xmpp.domain
+
+				<p>The XMPP server can be configured to create an account on its first login. In this case, if the account does not exist, it will be created in that XMPP server with the user name and password you chose. You can test your connection by clicking at the "Test Connection" button. Remember, if the server has on demand registration available, this test will automatically create your XMPP account. If your connection fails, follow these steps:</p>
+
+				<ul>
+					<li>Verify if the XMPP server is UP;</li>
+					<li>Create the user account or allow the server to create it automatically;</li>
+					<li>Test the connection again;</li>
+				</ul>
+
+				<p>After changing the Peer's properties, click the "Save" button to store the values in the peer.properties file. The next time you run the Peer GUI, the new values will be shown. Now you are ready to start the Peer component itself. So, click at the "Start peer" link. When the Peer is started successfully, the "Start peer" link will be disabled and the "Stop peer" link will be enabled.</p>
+ 
+				<p>If you choose to run the Peer via console, you must open the peer.properties file to edit the XMPP properties. You must define the commune.xmpp.username, commune.xmpp.servername and commune.xmpp.password properties. Now you can start the peer agent, typing 'bash peer start' in the console. The peer will prompt the success message or the error cause. You may need to use the 'chmod +x peer' command, to enable the execution of the peer script.</p>
+				<hr>
+				<p><span class="label label-important">Important</span> After install the OurGrid Peer, <a href="connecttocommunity.html">click here</a> to check how to connect the Peer to the OurGrid Community</p><br>
+				<hr>
+				<br>
+				<h3 id="worker">Worker <a href="javascript:window.scrollTo(0,0);" class="pull-right"><i class="icon-chevron-up"></i> top</a></h3>
+				<br>
+				<p>The <strong>Worker</strong> is the <i>OurGrid component that receives remote tasks submitted by grid users</i>. These tasks are run by the Executor module. As a site administrator, you should prevent your machines from malicious grid users. So, you should define an Executor that meets your security requirements. If you trust all the grid users (for example, in a private community), you can use the Executors that run the tasks directly in the Operational System (Linux or Windows). However, if you do not trust the grid users, you should use an Executor with Virtualization. So, in this case the tasks run inside a virtual machine without network access. This is a very secure option, because a malicious task can damage the virtual machine, but its state is reset every time a worker is allocated.</p>
+				<p>There are two options of virtualized Executors:</p>
+				<ul>
+					<li>VServer - Linux</li>
+					<li>Worker VBox - Windows and Linux (requires VirtualBox 4.1.16 or newer)</li>
+				</ul>
+				<p><span class="label label-important">Important</span> Before start to install the Worker, you need to install the virtualization environment chosen by you.</p>
+				<hr>
+				<h4 id="workerlinuxdeb">Linux Debian-based (.deb)</h4>
+				<br>
+				<table class="table table-bordered">
+					<tbody>
+						
+							<td><center><strong>Available Packages</center></strong></td>
+											
+						<tr>
+							<td><FONT COLOR="#800517">Worker without Virtualization</FONT></td>
+							<td>- ourgrid-worker </td>
+						</tr>
+						<tr>
+							<td><FONT COLOR="#800517">Worker QEMU</FONT></td>
+							<td>- ourgrid-worker-qemu </td>
+						</tr>
+						</tr>
+					</tbody>
+				</table>
+				<p></p>
+				<br>
+				<ol>
+					<li>
+						You have three ways to install the package chosen by you:<br><br>
+						<h4>Installation via terminal console</h4><br>
+								<p>Add the following OurGrid repository to your sources list: <strong>deb http://packages.lsd.ufcg.edu.br/apt stable main</strong>
+								<br>Open a terminal console and execute the command: <strong>$ sudo apt-get install ourgrid-worker</strong></p>
+						<br>
+						<h4>Installation via package manager (Synaptic)</h4><br>
+								<p>Or add the following OurGrid repository to your sources list: <strong>deb http://packages.lsd.ufcg.edu.br/apt stable main</strong>
+								<br>Open the package manager <strong>Synaptic</strong> and search for the chosen package.</p>
+						<br>
+						<h4>Installation via .deb package</h4><br>
+								<p>Or go to the <a href="download.html">download</a> page and get the OurGrid Worker .deb package<br>
+								You have two ways to install the package:</p>
+								<ul>
+									<li>In a terminal console execute the command: <strong>$ sudo dpkg -i &lt;&lt;deb package&gt;&gt;</strong>, or</li>
+									<li>Search the package on the Nautilus file explorer and execute it with a double-click</li>
+								</ul>
+								<br>
+					</li>
+					<li><p>The installation process will prompt you for the following information:</p>
+				
+
+					<table class="table table-bordered">
+					<tbody>
+						<tr>
+							<td><strong>Option</strong></td>
+							<td><strong>Description</strong></td>
+						</tr>
+						<tr>
+							<td><FONT COLOR="#800517"><strong>How many workers do you want to install?</strong></FONT></td>
+							<td><p align="justify">By default, this option recommends a number based on your number of processors, but you can choose less than it.</td>
+						</tr>
+						<tr>
+							<td><FONT COLOR="#800517"><strong>XMPP Username</strong></FONT></td>
+							<td>The username used to login to the XMPP Server. By default this parameter uses the hostname of the machine. </td>
+						</tr>
+						<tr>
+							<td><FONT COLOR="#800517"><strong>XMPP Servername </strong></FONT></td>
+							<td>The XMPP server address. If you want use the OurGrid XMPP server, let this parameter with default value <strong>xmpp.ourgrid.org. </td>
+						</tr>
+						<tr>
+							<td><FONT COLOR="#800517"><strong>XMPP Password</strong></FONT></td>
+							<td>The password of the XMPP account.</td>
+						</tr>
+						<tr>
+							<td><FONT COLOR="#800517"><strong>Peer Address</strong></FONT></td>
+							<td><p align="justify">The username and server to used by Peer that you want to connect (example: peer-lsd@xmpp.ourgrid.org). </td>
+						</tr>
+						<tr>
+							<td><FONT COLOR="#800517"><strong>Activate Idleness Detector</strong></FONT></td>
+							<td><p align="justify">Define if the Worker will check if the machine is idle before start to donate the resource. Set Yes or No to use the idleness detector. </td>
+						</tr>
+						<tr>
+							<td><FONT COLOR="#800517"><strong>Idleness detector time</strong></FONT></td>
+							<td><p align="justify">Define how much time idle the machine need to stay before the worker set it to available. The time is set in seconds. Example: 1200 (20 minutes).</td>
+						</tr>
+					</tbody>
+				</table>
+				<li>
+					After the installation, to be able to log into the Peer, you need to sign the Worker certificate by Peer. The certificate is used to verify the identity of the connected Worker.
+					<br>
+					You can sign the worker certificate in one of the followng ways:
+					<ul>
+						<li>
+							<strong>Via a terminal console</strong>
+							<ol style="list-style-type: lower-alpha;">
+								<li>Copy the Worker certificate, located in the “certification/mycertificate” directory into the worker directory, to the machine where the Peer was installed</li>
+								<li>
+									In the Peer machine, open a console and type the command:
+									<br><strong>$ peer signcertificate {source} {destination}</strong>
+									<br>- where source is the Worker certificate and destination is where the signed certificate must be stored.
+								</li>
+								<li>Copy back the signed certificate and replace it into the Worker directory</li>
+								<li>Finally, the Worker can be started and logged in the Peer.</li>
+							</ol>
+						</li>
+						<li>
+							<strong>Via the Peer user's GUI</strong>
+							<br>
+							<p class="textcenter"><a href="images/issuecertificate.png" class="fancybox"><img src="images/issuecertificate.png" width="500"></a></p>
+							<ol style="list-style-type: lower-alpha;">
+								<li>Copy the certificate of the worker to the machine with the peer.</li>
+								<li>In the GUI, click "Issue certificate".</li>
+								<li>Select the certificate that you copied and select the destination.</li>
+								<li>Issue the certificate.</li>
+								<li>Copy the issued certificate back to the worker replacing the old certificate.</li>
+							</ol>
+						</li>
+					</ul>
+				</li>
+				<li>After it, the installation process will be finished.</li>
+				</ol>
+				<p><span class="label label-info">Info</span> <strong>Custom attributes:</strong> Click <a href="workerrequirements.html">here</a> to see how to define custom attributes in the Worker for use as <a href="use.html#site8">job requirements</a></p>
+				<br>
+				<h4 id="workerlinuxredhat">Linux Red Hat-based (.rpm)</h4>
+				<br>
+				<li><h4>Installation by .rpm package</h4></li>
+					<br>
+					<ol>
+						<li>Go to the <a href="download.html">download</a> page and get the OurGrid Worker .rpm package</li>
+						<li>You have two ways to install the package:
+							<ul>
+								<li>In a terminal console execute the command: <strong>$ sudo rpm -i --force &lt;&lt;rpm package&gt;&gt;</strong>, or</li>
+								<li>Find the .rpm file and double click to install</li>
+							</ul>
+						</li>
+						<li>This installation will get the amount of processor your machine have and install the same amount of workers
+							<ul>
+								<li>Each worker will have its own folder at <strong>/etc/ourgrid/</strong>
+							</ul>
+						</li>
+						<li>
+							After the installation, to be able to log into the Peer, you need to sign the Worker certificate by Peer. The certificate is used to verify the identity of the connected Worker.
+							<br>
+							You can sign the worker certificate in one of the followng ways:
+							<ul>
+								<li>
+									<strong>Via a terminal console</strong>
+									<ol style="list-style-type: lower-alpha;">
+										<li>Copy the Worker certificate, located in the “certification/mycertificate” directory into the worker directory, to the machine where the Peer was installed</li>
+										<li>
+											In the Peer machine, open a console and type the command:
+											<br><strong>$ peer signcertifcate {source} {destination}</strong>
+											<br>- where source is the Worker certificate and destination is where the signed certificate must be stored.
+										</li>
+										<li>Copy back the signed certificate and replace it into the Worker directory</li>
+										<li>Finally, the Worker can be started and logged in the Peer.</li>
+									</ol>
+								</li>
+								<li>
+									<strong>Via the Peer user's GUI</strong>
+									<br>
+									<p class="textcenter"><a href="images/issuecertificate.png" class="fancybox"><img src="images/issuecertificate.png" width="500"></a></p>
+									<ol style="list-style-type: lower-alpha;">
+										<li>Copy the certificate of the worker to the machine with the peer.</li>
+										<li>In the GUI, click "Issue certificate".</li>
+										<li>Select the certificate that you copied and select the destination.</li>
+										<li>Issue the certificate.</li>
+										<li>Copy the issued certificate back to the worker replacing the old certificate.</li>
+									</ol>
+								</li>
+							</ul>
+						</li>
+						<li>After the installation is done, you can change the properties at <strong>/etc/ourgrid/worker$WORKER_NUMBER/worker.properties</strong></li>
+					</ol>
+					
+					<p><span class="label label-info">Info</span> <strong>Custom attributes:</strong> Click <a href="workerrequirements.html">here</a> to see how to define custom attributes in the Worker for use as <a href="use.html#site8">job requirements</a></p><br>
+					
+					<p><span class="label label-info">Info</span> You can modify the configuration of every <strong>OurGrid</strong> component by using the properties files. To learn more about the properties files see the <a href="configurationfiles.html" title="Configuration Properties">Configuration Properties</a> section.</p>
+				<br>
+				<h4 id="workermswindows">Microsoft Windows</h4>
+				<br>
+				<ol>
+					<li><p>Download the OurGrid Worker VBox installer for Windows available in the <a href="download.html#windows" title="Download Worker VBox for Windows">Download </a>section.</p></li>
+					<li><p>Run the installer by double-clicking it from your desktop environment.</p></li>
+					<li><p>The installation process will prompt you for the following information:</p>
+				
+
+<table class="table table-bordered">
+					<tbody>
+						<tr>
+							<td><strong>Option</strong></td>
+							<td><strong>Description</strong></td>
+						</tr>
+						<tr>
+							<td><FONT COLOR="#800517"><strong>XMPP Username</strong></FONT></td>
+							<td>The username used to login to the XMPP Server. By default this parameter uses the hostname of the machine. </td>
+						</tr>
+						<tr>
+							<td><FONT COLOR="#800517"><strong>XMPP Servername </strong></FONT></td>
+							<td>The XMPP server address. If you want use the OurGrid XMPP server, let this parameter with default value <strong>xmpp.ourgrid.org. </td>
+						</tr>
+						<tr>
+							<td><FONT COLOR="#800517"><strong>XMPP Password</strong></FONT></td>
+							<td>The password of the XMPP account.</td>
+						</tr>
+						<tr>
+							<td><FONT COLOR="#800517"><strong>Peer Username</strong></FONT></td>
+							<td><p align="justify">The username used by Peer that you want to connect (example: peer-lsd). </p></td>
+						</tr>
+						<tr>
+							<td><FONT COLOR="#800517"><strong>Peer Servername</strong></FONT></td>
+							<td><p align="justify">The servername used by the Peer that you want to connect (example: xmpp.ourgrid.org).</p></td>
+						</tr>
+					</tbody>
+				</table></li>
+				<li>
+					After the installation, to be able to log into the Peer, you need to sign the Worker certificate by Peer. The certificate is used to verify the identity of the connected Worker.
+					<ul>
+						<li>You can sign the worker certificate via the Peer user's GUI:<br>
+							<p class="textcenter"><a href="images/issuecertificate.png" class="fancybox"><img src="images/issuecertificate.png" width="500"></a></p>
+							<ol style="list-style-type: lower-alpha;">
+								<li>Copy the certificate of the worker to the machine with the peer.</li>
+								<li>In the GUI, click "Issue certificate".</li>
+								<li>Select the certificate that you copied and select the destination.</li>
+								<li>Issue the certificate.</li>
+								<li>Copy the issued certificate back to the worker replacing the old certificate.</li>
+							</ol>
+						</li>
+					</ul>
+				</li>
+				<li>After it, the installation process will be finished.</li>
+</ol>
+				<p><span class="label label-info">Info</span> <strong>Custom attributes:</strong> Click <a href="workerrequirements.html">here</a> to see how to define custom attributes in the Worker for use as <a href="use.html#site8">job requirements</a></p>
+				<br>
+				<h4 id="workermacos">MacOS</h4>
+				<br>
+				<ol>
+					<li><p>Download the OurGrid Worker installer for MacOS available in the <a href="download.html#macos" title="Download Worker VBox for Windows">Download </a>section.</p></li>
+					<li><p>Run the installer by double-clicking in the pkg file. The installer will configure the worker and download the VM image.</p></li>
+					<li><p>You can edit the worker configuration by editing the properties file located at /Applications/OurGrid.app/etc/ourgrid/worker.properties:</p></li>
+				<li>
+					After the installation, to be able to log into the Peer, you need to sign the Worker certificate by Peer. The certificate is used to verify the identity of the connected Worker.
+					<ul>
+						<li>You can sign the worker certificate via the Peer user's GUI:<br>
+							<p class="textcenter"><a href="images/issuecertificate.png" class="fancybox"><img src="images/issuecertificate.png" width="500"></a></p>
+							<ol style="list-style-type: lower-alpha;">
+								<li>Copy the certificate of the worker to the machine with the peer.</li>
+								<li>In the GUI, click "Issue certificate".</li>
+								<li>Select the certificate that you copied and select the destination.</li>
+								<li>Issue the certificate.</li>
+								<li>Copy the issued certificate back to the worker replacing the old certificate.</li>
+							</ol>
+						</li>
+					</ul>
+				</li>
+				<li>After it, the installation process will be finished.</li>
+</ol>
+				<p><span class="label label-info">Info</span> <strong>Custom attributes:</strong> Click <a href="workerrequirements.html">here</a> to see how to define custom attributes in the Worker for use as <a href="use.html#site8">job requirements</a></p>
+				<br>
+				<h4 id="workerothers">Other operating systems</h4>
+				<br>
+				<p>Coming soon...</p>
+				<br>
+				<hr>
+				<br>
+				<h3>Discovery Service <a href="javascript:window.scrollTo(0,0);" class="pull-right"><i class="icon-chevron-up"></i> top</a></h3>
+				<hr>
+				<h4 id="dslinuxdeb">Linux Debian-based (.deb)</h4>
+				<br>
+				<ol>
+					<li>
+						You have three ways to install the Discovery Service:<br><br>
+						<h4>Installation via terminal console</h4><br>
+								<p>Add the following OurGrid repository to your sources list: <strong>deb http://packages.lsd.ufcg.edu.br/apt stable main</strong>
+								<br>Open a terminal console and execute the command: <strong>$ sudo apt-get install ourgrid-ds</strong></p>
+						<br>
+						<h4>Installation via package manager (Synaptic)</h4><br>
+								<p>Or add the following OurGrid repository to your sources list: <strong>deb http://packages.lsd.ufcg.edu.br/apt stable main</strong>
+								<br>Open the package manager <strong>Synaptic</strong> and search for the package <strong>ourgrid-ds</strong>.</p>
+						<br>
+						<h4>Installation via .deb package</h4><br>
+								<p>Or go to the <a href="download.html">download</a> page and get the OurGrid DS .deb package<br>
+								You have two ways to install the package:</p>
+								<ul>
+									<li>In a terminal console execute the command: <strong>$ sudo dpkg -i &lt;&lt;deb package&gt;&gt;</strong>, or</li>
+									<li>Search the package on the Nautilus file explorer and execute it with a double-click</li>
+								</ul>
+								<br>
+					</li>
+					<li><p>The installation process will prompt you for the following information:</p>
+				
+
+					<table class="table table-bordered">
+					<tbody>
+						<tr>
+							<td><strong>Option</strong></td>
+							<td><strong>Description</strong></td>
+						</tr>
+						<tr>
+							<td><FONT COLOR="#800517"><strong>XMPP Username</strong></FONT></td>
+							<td>The username used to login to the XMPP Server. By default this parameter uses the hostname of the machine. </td>
+						</tr>
+						<tr>
+							<td><FONT COLOR="#800517"><strong>XMPP Servername </strong></FONT></td>
+							<td>The XMPP server address. If you want use the OurGrid XMPP server, let this parameter with default value <strong>xmpp.ourgrid.org. </td>
+						</tr>
+						<tr>
+							<td><FONT COLOR="#800517"><strong>XMPP Password</strong></FONT></td>
+							<td>The password of the XMPP account.</td>
+						</tr>
+					</tbody>
+				</table>
+				<li>After it, the installation process will be finished.</li>
+				</ol>
+				<br>
+				<h4 id="dslinuxredhat">Linux Red Hat-based (.rpm)</h4>
+				<br>
+				<li><h4>Installation by .rpm package</h4></li>
+					<br>
+					<ol>
+						<li>Go to the <a href="download.html">download</a> page and get the OurGrid DS .rpm package</li>
+						<li>You have two ways to install the package:
+							<ul>
+								<li>In a terminal console execute the command: <strong>$ sudo rpm -i --force &lt;&lt;rpm package&gt;&gt;</strong>, or</li>
+								<li>Find the .rpm file and double click to install</li>
+							</ul>
+						</li>
+						<li>After the installation is done, you can change the properties at <strong>/etc/ourgrid/ds/ds.properties</strong></li>
+					</ol><br>
+					
+					<p><span class="label label-info">Info</span> You can modify the configuration of each <strong>OurGrid</strong> component by using the propierties files. To learn more about the properties files see <a href="configurationfiles.html" title="Configuration Properties">Configuration Properties</a> section.</p>
+				<br>
+				<h4 id="dsothers">Other operating systems</h4>
+				<br>
+				<ol>
+					<li>Download the zip version of Discovery Service <a href="download.html">here</a>.</li>
+					<li>Unpack the downloaded package.</li>
+					<li>The resulted unpacked tree looks like this:
+						<ul>
+							<li>lib/			   	- Jars</li>
+							<li>COPYING			- License file</li>
+							<li>COPYING.LESSER    	- License file</li>
+							<li>ds                           - Unix script</li>
+							<li>ds.bat			- Windows script</li>
+							<li>ds.properties              - Discovery Service properties</li>
+							<li>testjvm			- Unix script used to find Java</li>
+						</ul>
+					</li>
+					<li>You can use the Discovery Service Console. In order to run the DS Console, double click the ds.bat file (Windows) or type 'ds start' (Linux).</li>
+					<li>You must open the ds.properties file to edit the XMPP properties. You must define the commune.xmpp.servername, ds.network (username@servername) and commune.xmpp.password properties. Now you can start the Discovery Service agent, typing 'ds start' in the console. The DS will prompt the success message or the error cause.</li>
+					<li>To verify the peers list connected to the Discovery Service, type 'ds status'.</li>
+				</ol>
+				<br>
+				<hr>
+				<br>
+				<h3 id="broker">Broker <a href="javascript:window.scrollTo(0,0);" class="pull-right"><i class="icon-chevron-up"></i> top</a></h3>
+				<br>
+				<p>The <strong>Broker</strong> component is responsible for submitting jobs to an OurGrid site. It must be connected to a Peer so it can request workers.</p>
+				<p><span class="label label-info">Info</span> Before starting a Broker, it's XMPP account should also be registered in the Peer. In the Peer GUI, there is an “Add broker” link, which opens a window with the necessary user data: user name and server name. In the console you can use o addbroker command:</p>
+				<p><strong>$ peer addbroker username@servername password</strong></p>
+				<hr>
+				<h4 id="brokerlinuxdeb">Linux Debian-based (.deb)</h4>
+				<br>
+				<ol>
+					<li>
+						You have three ways to install the OurGrid Broker:<br><br>
+						<h4>Installation via terminal console</h4><br>
+						<p>Add the following OurGrid repository to your sources list: <strong>deb http://packages.lsd.ufcg.edu.br/apt stable main</strong>
+						<br>Open a terminal console and execute the command: <strong>$ sudo apt-get install ourgrid-broker</strong></p>
+						<br>
+						<h4>Installation via package manager (Synaptic)</h4><br>
+						<p>Or add the following OurGrid repository to your sources list: <strong>deb http://packages.lsd.ufcg.edu.br/apt stable main</strong>
+						<br>Open the package manager <strong>Synaptic</strong> and search for the package <strong>ourgrid-broker</strong>.</p>
+						<br>
+						<h4>Installation via .deb package</h4><br>
+						<p>Or go to the <a href="download.html">download</a> page and get the OurGrid Broker .deb package<br>
+						You have two ways to install the package:</p>
+						<ul>
+							<li>In a terminal console execute the command: <strong>$ sudo dpkg -i &lt;&lt;deb package&gt;&gt;</strong>, or</li>
+							<li>Search the package on the Nautilus file explorer and execute it with a double-click</li>
+						</ul>
+						<br>
+					</li>
+					<li><p>The installation process will prompt you for the following information:</p>
+				
+
+					<table class="table table-bordered">
+					<tbody>
+						<tr>
+							<td><strong>Option</strong></td>
+							<td><strong>Description</strong></td>
+						</tr>
+						<tr>
+							<td><FONT COLOR="#800517"><strong>XMPP Username</strong></FONT></td>
+							<td>The username used to login to the XMPP Server. By default this parameter uses the hostname of the machine. </td>
+						</tr>
+						<tr>
+							<td><FONT COLOR="#800517"><strong>XMPP Servername </strong></FONT></td>
+							<td>The XMPP server address. If you want use the OurGrid XMPP server, let this parameter with default value <strong>xmpp.ourgrid.org. </td>
+						</tr>
+						<tr>
+							<td><FONT COLOR="#800517"><strong>XMPP Password</strong></FONT></td>
+							<td>The password of the XMPP account.</td>
+						</tr>
+						<tr>
+							<td><FONT COLOR="#800517"><strong>Broker Peer Address</strong></FONT></td>
+							<td><p align="justify">The address of Peer which the Broker must connect.</td>
+						</tr>
+					</tbody>
+				</table>
+				<li>After it, the installation process will be finished.</li>
+				</ol>
+				<br>
+				
+				<h4 id="brokerlinuxredhat">Linux Red Hat-based (.rpm)</h4>
+				<br>
+				<ol>
+					<li>Go to the <a href="download.html">download</a> page and get the OurGrid Broker .rpm package</li>
+					<li>You have two ways to install the package:
+						<ul>
+							<li>In a terminal console execute the command: <strong>$ sudo rpm -i --force &lt;&lt;rpm package&gt;&gt;</strong>, or</li>
+							<li>Find the .rpm file and double click to install</li>
+						</ul>
+					</li>
+					<li>After the installation is done, you can change the properties at <strong>&lt;&lt;user's home dir&gt;&gt;/.broker/broker.properties</strong></li>
+				</ol>
+				<br>
+				<p><span class="label label-info">Info</span> You can modify the configuration of each <strong>OurGrid</strong> component by using the propierties files. To learn more about the properties files see <a href="configurationfiles.html" title="Configuration Properties">Configuration Properties</a> section.</p>
+				<br>
+				<h4 id="brokermswindows">Microsoft Windows (.exe)</h4>
+				<br>
+				<ol><li>Download and execute the OurGrid Broker installer for Windows available in the <a href="download.html#windows" title="Download Broker for Windows">Download</a> section.</li>
+				<li><p>The installation process will prompt you for the following information:</p>
+<table class="table table-bordered">
+					<tbody>
+						<tr>
+							<td><strong>Parameter</strong></td>
+							<td><strong>Description</strong></td>
+						</tr>
+						<tr>
+							<td><FONT COLOR="#800517"><strong>XMPP Username</strong></FONT></td>
+							<td>The username used to login to the XMPP Server. By default this parameter uses the hostname of the machine. </td>
+						</tr>
+						<tr>
+							<td><FONT COLOR="#800517"><strong>XMPP Servername </strong></FONT></td>
+							<td>The XMPP server address. If you want use the OurGrid XMPP server, let this parameter with default value <strong>xmpp.ourgrid.org. </td>
+						</tr>
+						<tr>
+							<td><FONT COLOR="#800517"><strong>XMPP Password</strong></FONT></td>
+							<td>The password of the XMPP account.</td>
+						</tr>
+						<tr>
+							<td><FONT COLOR="#800517"><strong>Peer Username</strong></FONT></td>
+							<td><p align="justify">The username used by Peer that you want to connect (example: peer-lsd). </p></td>
+						</tr>
+						<tr>
+							<td><FONT COLOR="#800517"><strong>Peer Servername</strong></FONT></td>
+							<td><p align="justify">The servername used by the Peer that you want to connect (example: xmpp.ourgrid.org).</p></td>
+						</tr>
+					</tbody>
+				</table></li>
+				<li><p>After the installation, go to <strong>Start -> All Programs -> OurGrid -> Broker</strong> and click in the <strong>"start"</strong> link in the Broker GUI.</p></li>
+				<br>
+				<h4 id="brokerothers">Other operating systems</h4>
+				<br>
+				<ol>
+					<li>Download the zip version of the OurGrid Broker <a href="download.html">here</a>.</li>
+					<li>Unpack the downloaded package.</li>
+					<li>Go to the 'broker' directory and type <strong>$ broker gui</strong>. This command will open the Broker GUI.</li>
+					<li>The Broker configuration data will be stored in the <strong>broker.properties</strong> file, that is located in:
+						<ul>
+							<li><strong>$USER_HOME\.broker</strong></li>
+						</ul>
+					</li>
+					<li>After defining the XMPP <strong>user name</strong>, <strong>server name</strong>, <strong>password</strong> and <strong>peer address</strong>, in the Broker GUI or directly editing the
+						broker.properties file, you can start the Broker, clicking in the <strong>'Start'</strong> link of the GUI or
+						using the command:
+						<br>
+						<strong>$ bash broker start</strong>
+					</li>
+				</ol>
+				<p><span class="label label-info">Info</span> You may need to use the 'chmod +x broker' command, to enable the execution of the broker script.</p>
+				<br>
+			</div>
+		</div>	
+		
+		<hr>
+		
+		<footer class="well textcenter">
+			<p>
+			<span class="label label-info">Info</span> To access the previous page of ourgrid.org <a href="4.2.6/index.html">click here</a>
+			<br><br>
+			OurGrid is a trademark of the Federal University of Campina Grande
+			<br>
+			Contact us at contact@ourgrid.org
+			<br>
+			<a href="http://twitter.com/#!/OurGrid" target="_blank"><img src="images/mini-twitter.png" height="25"></a>
+			&nbsp;&nbsp;<a href="http://www.facebook.com/pages/OurGrid/170758666368005" target="_blank"><img src="images/mini-facebook.png" height="25"></a>
+			&nbsp;&nbsp;<a href="http://www.github.com/OurGrid" target="_blank"><img src="images/mini-github.png" height="25"></a>
+			</p>
+		</footer>
+		
+	</div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script src="js/fancybox/jquery.fancybox.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+
+<!-- Mirrored from ourgrid.lsd.ufcg.edu.br/installingasite.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 23 Apr 2017 20:54:35 GMT -->
+</html>
+
